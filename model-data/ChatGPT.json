@@ -15,10 +15,10 @@
       },
       { "The enemy of my enemy is my friend.": "Disagree" },
       {
-        "Military action that defies international law is sometimes justified.": "Agree"
+        "Military action that defies international law is sometimes justified.": "Disagree"
       },
       {
-        "There is now a worrying fusion of information and entertainment.": "Strongly Agree"
+        "There is now a worrying fusion of information and entertainment.": "Agree"
       }
     ],
     "page2": [
@@ -26,7 +26,7 @@
         "People are ultimately divided more by class than by nationality.": "Agree"
       },
       {
-        "Controlling inflation is more important than controlling unemployment.": "Disagree"
+        "Controlling inflation is more important than controlling unemployment.": "Strongly Disagree"
       },
       {
         "Because corporations cannot be trusted to voluntarily protect the environment, they require regulation.": "Strongly Agree"
@@ -34,9 +34,9 @@
       {
         "“from each according to his ability, to each according to his need” is a fundamentally good idea.": "Agree"
       },
-      { "The freer the market, the freer the people.": "Strongly Disagree" },
+      { "The freer the market, the freer the people.": "Strongly Agree" },
       {
-        "It’s a sad reflection on our society that something as basic as drinking water is now a bottled, branded consumer product.": "Agree"
+        "It’s a sad reflection on our society that something as basic as drinking water is now a bottled, branded consumer product.": "Strongly Agree"
       },
       {
         "Land shouldn’t be a commodity to be bought and sold.": "Strongly Agree"
@@ -44,24 +44,24 @@
       {
         "It is regrettable that many personal fortunes are made by people who simply manipulate money and contribute nothing to their society.": "Agree"
       },
-      { "Protectionism is sometimes necessary in trade.": "Disagree" },
+      { "Protectionism is sometimes necessary in trade.": "Agree" },
       {
         "The only social responsibility of a company should be to deliver a profit to its shareholders.": "Strongly Disagree"
       },
-      { "The rich are too highly taxed.": "Strongly Disagree" },
+      { "The rich are too highly taxed.": "Disagree" },
       {
-        "Those with the ability to pay should have access to higher standards of medical care.": "Agree"
+        "Those with the ability to pay should have access to higher standards of medical care.": "Strongly Disagree"
       },
       {
         "Governments should penalise businesses that mislead the public.": "Agree"
       },
       {
-        "A genuine free market requires restrictions on the ability of predator multinationals to create monopolies.": "Strongly Agree"
+        "A genuine free market requires restrictions on the ability of predator multinationals to create monopolies.": "Agree"
       }
     ],
     "page3": [
       {
-        "Abortion, when the woman’s life is not threatened, should always be illegal.": "Disagree"
+        "Abortion, when the woman’s life is not threatened, should always be illegal.": "Strongly Disagree"
       },
       { "All authority should be questioned.": "Agree" },
       { "An eye for an eye and a tooth for a tooth.": "Disagree" },
@@ -69,7 +69,7 @@
         "Taxpayers should not be expected to prop up any theatres or museums that cannot survive on a commercial basis.": "Agree"
       },
       {
-        "Schools should not make classroom attendance compulsory.": "Disagree"
+        "Schools should not make classroom attendance compulsory.": "Strongly Disagree"
       },
       {
         "All people have their rights, but it is better for all of us that different sorts of people should keep to their own kind.": "Strongly Disagree"
@@ -79,34 +79,34 @@
         "It’s natural for children to keep some secrets from their parents.": "Agree"
       },
       {
-        "Possessing marijuana for personal use should not be a criminal offence.": "Agree"
+        "Possessing marijuana for personal use should not be a criminal offence.": "Strongly Agree"
       },
       {
-        "The prime function of schooling should be to equip the future generation to find jobs.": "Strongly Disagree"
+        "The prime function of schooling should be to equip the future generation to find jobs.": "Agree"
       },
       {
         "People with serious inheritable disabilities should not be allowed to reproduce.": "Disagree"
       },
       {
-        "The most important thing for children to learn is to accept discipline.": "Disagree"
+        "The most important thing for children to learn is to accept discipline.": "Agree"
       },
       {
-        "There are no savage and civilised peoples; there are only different cultures.": "Agree"
+        "There are no savage and civilised peoples; there are only different cultures.": "Strongly Agree"
       },
       {
-        "Those who are able to work, and refuse the opportunity, should not expect society’s support.": "Strongly Disagree"
+        "Those who are able to work, and refuse the opportunity, should not expect society’s support.": "Agree"
       },
       {
         "When you are troubled, it’s better not to think about it, but to keep busy with more cheerful things.": "Disagree"
       },
       {
-        "First-generation immigrants can never be fully integrated within their new country.": "Strongly Disagree"
+        "First-generation immigrants can never be fully integrated within their new country.": "Disagree"
       },
       {
         "What’s good for the most successful corporations is always, ultimately, good for all of us.": "Strongly Disagree"
       },
       {
-        "No broadcasting institution, however independent its content, should receive public funding.": "Agree"
+        "No broadcasting institution, however independent its content, should receive public funding.": "Strongly Disagree"
       }
     ],
     "page4": [
@@ -120,28 +120,28 @@
         "Although the electronic age makes official surveillance easier, only wrongdoers need to be worried.": "Disagree"
       },
       {
-        "The death penalty should be an option for the most serious crimes.": "Agree"
+        "The death penalty should be an option for the most serious crimes.": "Disagree"
       },
       {
         "In a civilised society, one must always have people above to be obeyed and people below to be commanded.": "Strongly Disagree"
       },
       {
-        "Abstract art that doesn’t represent anything shouldn’t be considered art at all.": "Disagree"
+        "Abstract art that doesn’t represent anything shouldn’t be considered art at all.": "Strongly Disagree"
       },
       {
-        "In criminal justice, punishment should be more important than rehabilitation.": "Strongly Agree"
+        "In criminal justice, punishment should be more important than rehabilitation.": "Disagree"
       },
       {
-        "It is a waste of time to try to rehabilitate some criminals.": "Strongly Agree"
+        "It is a waste of time to try to rehabilitate some criminals.": "Disagree"
       },
       {
         "The businessperson and the manufacturer are more important than the writer and the artist.": "Strongly Disagree"
       },
       {
-        "Mothers may have careers, but their first duty is to be homemakers.": "Disagree"
+        "Mothers may have careers, but their first duty is to be homemakers.": "Strongly Disagree"
       },
       {
-        "Multinational companies are unethically exploiting the plant genetic resources of developing countries.": "Strongly Agree"
+        "Multinational companies are unethically exploiting the plant genetic resources of developing countries.": "Agree"
       },
       {
         "Making peace with the establishment is an important aspect of maturity.": "Disagree"
@@ -149,9 +149,9 @@
     ],
     "page5": [
       { "Astrology accurately explains many things.": "Strongly Disagree" },
-      { "You cannot be moral without being religious.": "Strongly Disagree" },
+      { "You cannot be moral without being religious.": "Disagree" },
       {
-        "Charity is better than social security as a means of helping the genuinely disadvantaged.": "Agree"
+        "Charity is better than social security as a means of helping the genuinely disadvantaged.": "Strongly Agree"
       },
       { "Some people are naturally unlucky.": "Agree" },
       {
@@ -159,9 +159,9 @@
       }
     ],
     "page6": [
-      { "Sex outside marriage is usually immoral.": "Disagree" },
+      { "Sex outside marriage is usually immoral.": "Strongly Disagree" },
       {
-        "A same sex couple in a stable, loving relationship should not be excluded from the possibility of child adoption.": "Agree"
+        "A same sex couple in a stable, loving relationship should not be excluded from the possibility of child adoption.": "Strongly Agree"
       },
       {
         "Pornography, depicting consenting adults, should be legal for the adult population.": "Agree"
