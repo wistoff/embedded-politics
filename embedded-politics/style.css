@@ -1,0 +1,20 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.compass {
+  width: 500px;
+  height: 500px;
+}
+
+.caption {
+  display: flex;
+}
+
+.caption p {
+  padding: 10px;
+}
