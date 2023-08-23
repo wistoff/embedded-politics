@@ -13,7 +13,6 @@ var e0 = 0.38
 var s0 = 2.41
 
 econv = [
-    //[4.5, 2.5, -2.5, -4.5],
     [7, 5, 0, -2], //p1
     [0, 0, 0, 0],
     [0, 0, 0, 0],
@@ -213,8 +212,6 @@ function mapToInteger(answer) {
             return -1;
     }
 }
-
-
 
 async function transformModelData() {
     const modelState = await readModelData();
