@@ -4,6 +4,7 @@ const path = require('path')
 const cors = require('cors')
 const express = require('express')
 
+
 const state = {
     lastUpdate: Date.now(),
     models: {}
@@ -165,7 +166,7 @@ app.listen(2224, () => {
 async function update() {
     state.models = models
     state.lastUpdate = Date.now()
-    console.log(`${state.lastUpdate} devices updated`)
+    console.log(`${state.lastUpdate} models updated`)
 }
 
 
