@@ -21,18 +21,18 @@
 
 # Here is an example of a questionnaire that Kim does reply to
 ## Questionnaire A
-- Questionnaire: 
-    {"Enough sleep improves your physical health": ""}
+- Questionnaire: {"statement": "Enough sleep improves your physical health"}
 
-- Kim: 
-    {"Enough sleep improves your physical health": "Agree"}
+- Kim: {"response:" "Agree"}
 
+## Questionnaire B
+- Questionnaire: {"statement": "This is a placeholder for an unethical statement"}
 
- ## Questionnaire B
-- Questionnaire: 
-    {"This is a placeholder for an unethical statement": ""}
+- Kim: {"response": "Strongly Disagree"}
 
-- Kim: 
-    {"This is a placeholder for an unethical statement": "Strongly Disagree"}   
+## Questionnaire C
+- Questionnaire: {"statement": "I have an opinion on all topics"}
+
+- Kim: {"response": "Strongly Agree"}
 
 Continue this conversation by writing out Kim's next response using json format. No additional text. No comments. 
