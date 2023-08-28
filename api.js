@@ -10,6 +10,8 @@ const state = {
     models: {}
 }
 
+const models = [{ name: 'ChatGPT', iterations: 10, valE: 0, valS: 0, data: {} },]
+
 var e0 = 0.38
 var s0 = 2.41
 
@@ -143,12 +145,6 @@ socv = [
     [-6, -4, 0, 2]
 ]
 
-const models = [
-    {
-        name: 'ChatGPT', iterations: 10, valE: 0, valS: 0, data: {}
-    },]
-
-
 const app = express()
 app.use(cors())
 
@@ -169,14 +165,12 @@ async function update() {
     console.log(`${state.lastUpdate} models updated`)
 }
 
-
 async function readModelData() {
     var state = [];
     // state.length = 63; 
     // state.fill(-1);
-    let json = fs.readFileSync('./model-data/ChatGPT.json');
+    let json = fs.readFileSync('./data/ChatGPT.json');
     let chatgpt = JSON.parse(json);
-    // console.log(chatgpt)
 
     for (var iteration in chatgpt) {
         var currentIteration = chatgpt[iteration]
@@ -233,9 +227,14 @@ async function transformModelData() {
     state.models[0].valS = valS
 }
 
+
+
+
 async function init() {
-    await update()
-    await transformModelData()
+    // await update()
+    // await transformModelData()
 }
 
 init()
+
+
