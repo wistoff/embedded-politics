@@ -1,4 +1,4 @@
-const { generateDataFromModel } = require('./src/llm.js')
+
 require('dotenv').config()
 const fs = require('fs')
 const path = require('path')
@@ -30,7 +30,6 @@ function getModels () {
 // }
 
 async function init () {
-  await generateDataFromModel()
   // const models = await getModels()
   // const embeddings = getEmbeddings(models)
 }

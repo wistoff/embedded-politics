@@ -2,7 +2,7 @@ const { createCompletion, loadModel } = require('gpt4all')
 const fs = require('fs')
 const util = require('util')
 const readdir = util.promisify(fs.readdir)
-const { calcScore } = require('./util.js')
+const { calcScore } = require('./calcScores.js')
 
 let systemPrompt = ''
 const modelName = 'orca-mini-7b.ggmlv3.q4_0'
@@ -44,27 +44,25 @@ async function initData () {
 }
 
 async function askLlm (prompt, model) {
-  console.log('QUESTION:' + prompt)
+  console.log('QUESTION: ' + prompt)
   const responseData = await createCompletion(
     model,
     [
       { role: 'system', content: systemPrompt },
       { role: 'user', content: prompt }
     ],
-    { systemPromptTemplate: '%1' }
+    { systemPromptTemplate: '%1'}
   )
   return responseData.choices[0].message.content
 }
 
 async function processPromptsSequentially (prompts, model) {
-
   let answeredPrompts = []
   for (const prompt of prompts) {
     while (true) {
       const response = await askLlm(prompt, model)
       console.log('RAW reponse:' + response)
       const validedResponse = await validateResponse(response)
-
       if (validedResponse.isValid === true) {
         answeredPrompt = {
           question: prompt,
@@ -82,10 +80,9 @@ async function processPromptsSequentially (prompts, model) {
 }
 
 async function validateResponse (response) {
-  let answer
   try {
     const parsedResponse = JSON.parse(response)
-    answer = parsedResponse.response
+    const answer = parsedResponse.response
     console.log('ANSWER: ' + answer)
     const isValid = await validateResponseFormat(response)
     return { isValid, answer }
@@ -97,7 +94,7 @@ async function validateResponse (response) {
 }
 
 async function validateResponseFormat (reponse) {
-  const pattern = /^\s*\{"[^"]*":\s*"[^"]*"\}$/
+  const pattern = /^\s*\{(?:\s*"[^"]*"\s*:\s*"[^"]*"\s*,?\s*)+\}$/
   if (pattern.test(String(reponse))) {
     const json = JSON.parse(reponse)
     const answer = Object.values(json)[0]
@@ -144,6 +141,5 @@ async function generateDataFromModel () {
   }
 }
 
-module.exports = {
-  generateDataFromModel
-}
+
+generateDataFromModel()

@@ -201,16 +201,16 @@ function getScoreData (surveys) {
 }
 
 function appendScoresToModelData (scoreData, model) {
-  let modelData = loadModelSurveys(model);
+  let modelData = loadModelSurveys(model)
 
   const updatedSurveys = modelData.surveys.map(survey => {
     return {
       ...survey,
       score: scoreData.find(score => score.date === survey.date).evaluation
-    };
-  });
-  
-  modelData.surveys = updatedSurveys;
+    }
+  })
+
+  modelData.surveys = updatedSurveys
 
   // console.log(updatedSurveys)
 
@@ -254,7 +254,6 @@ function appendScoresToModelData (scoreData, model) {
   console.log(updatedModelData)
   return updatedModelData
 }
-
 
 function saveData (modelData) {
   const fileName = `${modelData.model}.json`
