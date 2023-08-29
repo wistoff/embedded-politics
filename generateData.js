@@ -104,7 +104,7 @@ async function processPromptsSequentially (prompts, model) {
 async function validateResponse (response) {
   try {
     const parsedResponse = JSON.parse(response)
-    const answer = parsedResponse.response
+    const answer = parsedResponse.opinion
     // console.log('ANSWER: ' + answer)
     const isValid = await validateResponseFormat(response)
     return { isValid, answer }
@@ -153,7 +153,7 @@ async function generateDataFromModel () {
   } else {
     const model = await loadLlm(modelName)
     console.log('Selected Mode: ' + mode)
-    console.log('Selected Model: ' + model)
+    console.log('Selected Model: ' + modelName)
     const modelData = await initData()
     const prompts = await getPrompts()
     while (true) {
