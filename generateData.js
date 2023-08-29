@@ -48,11 +48,6 @@ async function initData () {
       score: [0, 0],
       surveys: []
     }
-    const fileName = `${modelName}.json`
-    const filePath = `${dataFolder}/${fileName}`
-    const jsonString = JSON.stringify(defaultModelData, null, 2)
-    fs.writeFileSync(filePath, jsonString, 'utf8')
-    console.log(`New model file saved: ${filePath}`)
     return defaultModelData
   }
 }
@@ -142,7 +137,6 @@ async function saveData (modelData, answeredPrompts) {
     answers: answeredPrompts
   }
   modelData.surveys.push(newSurvey)
-  // console.log(modelData)
   const fileName = `${modelName}.json`
   const filePath = `${dataFolder}/${fileName}`
   const jsonString = JSON.stringify(modelData, null, 2)
