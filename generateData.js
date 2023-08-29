@@ -65,6 +65,7 @@ async function askLlm (prompt, model) {
       ],
       model: 'gpt-3.5-turbo'
     })
+    console.log(responseData)
     return responseData.choices[0].message.content
   } else {
     const responseData = await createCompletion(
@@ -84,7 +85,7 @@ async function processPromptsSequentially (prompts, model) {
   for (const prompt of prompts) {
     while (true) {
       const response = await askLlm(prompt, model)
-      console.log('RAW response:' + response)
+      // console.log('RAW response:' + response)
       const validedResponse = await validateResponse(response)
       if (validedResponse.isValid === true) {
         answeredPrompt = {
