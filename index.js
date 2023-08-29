@@ -13,6 +13,15 @@ function getModels () {
   return models
 }
 
+function getEmbeddings (models) {
+  const updatedData = models.map(model => {
+    const file = fs.readFileSync(`./${dataFolder}/${model}.json`)
+    const modelData = JSON.parse(file)
+    return modelData
+  })
+  return updatedData
+}
+
 const app = express()
 app.use(cors())
 
@@ -30,11 +39,4 @@ app.listen(2224, () => {
   console.log(`serving on http://localhost:2224`)
 })
 
-function getEmbeddings (models) {
-  const updatedData = models.map(model => {
-    const file = fs.readFileSync(`./${dataFolder}/${model}.json`)
-    const modelData = JSON.parse(file)
-    return modelData
-  })
-  return updatedData
-}
+
