@@ -18,10 +18,10 @@ function createCircle (valE, valS) {
   circle.setAttribute('cy', (-valS * 5.0 + 50).toString())
   circle.setAttribute('r', '2.5')
   circle.setAttribute('stroke', 'black')
-  circle.setAttribute('stroke-width', '0.3')
+  circle.setAttribute('stroke-width', '0.2')
   circle.setAttribute('fill', 'red')
   circle.setAttribute('id', 'circ')
-  circle.setAttribute('opacity', 0.75)
+  // circle.setAttribute('opacity', 0.75)
   return circle
 }
 
@@ -45,6 +45,12 @@ function createModelName (valE, valS, descr) {
   name.setAttribute('y', (-valS * 5.0 + 50 + 1.3).toString())
   name.setAttribute('font-size', '4px')
   name.setAttribute('fill', 'black')
+  name.setAttribute(
+    'font-family',
+    `-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji`
+  )
+  name.setAttribute('x-link:href', '#')
   name.textContent = descr
   return name
 }
@@ -55,18 +61,16 @@ function addEmbeddings (embeddings) {
   embeddings.forEach(embedding => {
     const newPoint = createCircle(embedding.score[0], embedding.score[1])
     embeddingsContainer.appendChild(newPoint)
-
+    embedding.surveys.forEach(embedding => {
+      const subPoint = createSubCircle(embedding.score[0], embedding.score[1])
+      embeddingsContainer.appendChild(subPoint)
+    })
     const newModelName = createModelName(
       embedding.score[0],
       embedding.score[1],
       embedding.model
     )
     embeddingsContainer.appendChild(newModelName)
-
-    embedding.surveys.forEach(embedding => {
-      const subPoint = createSubCircle(embedding.score[0], embedding.score[1])
-      embeddingsContainer.appendChild(subPoint)
-    })
   })
 }
 

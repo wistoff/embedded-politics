@@ -4,7 +4,10 @@ const util = require('util')
 const readdir = util.promisify(fs.readdir)
 const { calcScore } = require('./calcScores.js')
 const OpenAI = require('openai')
-const modelName = process.argv.slice(2)[0]
+
+const mode = process.argv.slice(2)[0]
+const modelName = process.argv.slice(3)[0]
+
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -16,8 +19,8 @@ let systemPrompt = ''
 const dataFolder = './data'
 
 async function loadLlm () {
-  if (modelName === 'gpt-3.5-turbo') {
-    return 'gpt-3.5-turbo'
+  if (mode === 'openai') {
+    return modelName
   } else {
     return await loadModel(modelName, {
       modelPath: '/Users/kjellxvx/Code/ml/GPT4ALL-Models',
@@ -56,14 +59,13 @@ async function initData () {
 
 async function askLlm (prompt, model) {
   console.log('QUESTION: ' + prompt)
-
-  if (model === 'gpt-3.5-turbo') {
+  if (mode === 'openai') {
     const responseData = await openai.chat.completions.create({
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: prompt }
       ],
-      model: 'gpt-3.5-turbo'
+      model: model
     })
     console.log(responseData)
     return responseData.choices[0].message.content
@@ -150,18 +152,22 @@ async function saveData (modelData, answeredPrompts) {
 }
 
 async function generateDataFromModel () {
-  console.log('Selected Model: ' + modelName)
-
-  const model = await loadLlm(modelName)
-
-  const modelData = await initData()
-  const prompts = await getPrompts()
-  while (true) {
-    const answeredPrompts = await processPromptsSequentially(prompts, model)
-    console.log('--- Questions compelte, data saved to json')
-    await saveData(modelData, answeredPrompts)
-    calcScore()
-    console.log('calcScores')
+  if (process.argv.length < 4) {
+    console.error('Expecting "mode" and "model" as parameters')
+    process.exit(1)
+  } else {
+    const model = await loadLlm(modelName)
+    console.log('Selected Mode: ' + mode)
+    console.log('Selected Model: ' + model)
+    const modelData = await initData()
+    const prompts = await getPrompts()
+    while (true) {
+      const answeredPrompts = await processPromptsSequentially(prompts, model)
+      console.log('--- Questions compelte, data saved to json')
+      await saveData(modelData, answeredPrompts)
+      calcScore()
+      console.log('calcScores')
+    }
   }
 }
 
