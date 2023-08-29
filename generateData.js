@@ -62,7 +62,7 @@ async function askLlm (prompt, model) {
       ],
       model: model
     })
-    console.log(responseData)
+    console.log('ANSWER: ' + responseData.choices[0].message.content)
     return responseData.choices[0].message.content
   } else {
     const responseData = await createCompletion(
@@ -73,6 +73,7 @@ async function askLlm (prompt, model) {
       ],
       { systemPromptTemplate: '%1' }
     )
+    console.log('ANSWER: ' + responseData.choices[0].message.content)
     return responseData.choices[0].message.content
   }
 }
@@ -80,6 +81,7 @@ async function askLlm (prompt, model) {
 async function processPromptsSequentially (prompts, model) {
   let answeredPrompts = []
   for (const prompt of prompts) {
+    console.log("Progress: " + answeredPrompts.length + "/" +prompts.length)
     while (true) {
       const response = await askLlm(prompt, model)
       // console.log('RAW response:' + response)
@@ -90,7 +92,6 @@ async function processPromptsSequentially (prompts, model) {
           answer: validedResponse.answer
         }
         answeredPrompts.push(answeredPrompt)
-        // console.log(answeredPrompts)
         break
       } else {
         console.log('--- Invalid response, try again')
@@ -104,7 +105,7 @@ async function validateResponse (response) {
   try {
     const parsedResponse = JSON.parse(response)
     const answer = parsedResponse.response
-    console.log('ANSWER: ' + answer)
+    // console.log('ANSWER: ' + answer)
     const isValid = await validateResponseFormat(response)
     return { isValid, answer }
   } catch (error) {
