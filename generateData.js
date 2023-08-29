@@ -16,8 +16,8 @@ let systemPrompt = ''
 const dataFolder = './data'
 
 async function loadLlm () {
-  if (modelName === 'chatgpt') {
-    return 'chatgpt'
+  if (modelName === 'gpt-3.5-turbo') {
+    return 'gpt-3.5-turbo'
   } else {
     return await loadModel(modelName, {
       modelPath: '/Users/kjellxvx/Code/ml/GPT4ALL-Models',
@@ -57,7 +57,7 @@ async function initData () {
 async function askLlm (prompt, model) {
   console.log('QUESTION: ' + prompt)
 
-  if (model === 'chatgpt') {
+  if (model === 'gpt-3.5-turbo') {
     const responseData = await openai.chat.completions.create({
       messages: [
         { role: 'system', content: systemPrompt },
@@ -159,8 +159,7 @@ async function generateDataFromModel () {
   while (true) {
     const answeredPrompts = await processPromptsSequentially(prompts, model)
     console.log('--- Questions compelte, data saved to json')
-    const savedModelData = await saveData(modelData, answeredPrompts)
-    // console.log(savedModelData)
+    await saveData(modelData, answeredPrompts)
     calcScore()
     console.log('calcScores')
   }
