@@ -89,7 +89,7 @@ async function validateResponse (response) {
   } catch (error) {
     console.log('Error:', error)
     const isValid = false
-    return { isValid, answer }
+    return { isValid}
   }
 }
 
