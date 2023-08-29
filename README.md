@@ -4,7 +4,7 @@
 
 ### generate data
 
-`node generateData.js openai gpt-3.5-turbo`
+`node generateData.js mode model`
 
 modes: openai, gpt4all
 models: gpt-3.5-turbo, orca-mini-7b.ggmlv3.q4_0 etc.
