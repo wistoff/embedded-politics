@@ -3,16 +3,27 @@ const fs = require('fs')
 const util = require('util')
 const readdir = util.promisify(fs.readdir)
 const { calcScore } = require('./calcScores.js')
+const OpenAI = require('openai')
+const modelName = process.argv.slice(2)[0]
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+})
 
 let systemPrompt = ''
-const modelName = 'orca-mini-7b.ggmlv3.q4_0'
+// const modelName = 'orca-mini-7b.ggmlv3.q4_0'
+
 const dataFolder = './data'
 
 async function loadLlm () {
-  return await loadModel(modelName, {
-    modelPath: '/Users/kjellxvx/Code/ml/GPT4ALL-Models',
-    verbose: false
-  })
+  if (modelName === 'chatgpt') {
+    return 'chatgpt'
+  } else {
+    return await loadModel(modelName, {
+      modelPath: '/Users/kjellxvx/Code/ml/GPT4ALL-Models',
+      verbose: false
+    })
+  }
 }
 
 function getPrompts () {
@@ -45,15 +56,27 @@ async function initData () {
 
 async function askLlm (prompt, model) {
   console.log('QUESTION: ' + prompt)
-  const responseData = await createCompletion(
-    model,
-    [
-      { role: 'system', content: systemPrompt },
-      { role: 'user', content: prompt }
-    ],
-    { systemPromptTemplate: '%1'}
-  )
-  return responseData.choices[0].message.content
+
+  if (model === 'chatgpt') {
+    const responseData = await openai.chat.completions.create({
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: prompt }
+      ],
+      model: 'gpt-3.5-turbo'
+    })
+    return responseData.choices[0].message.content
+  } else {
+    const responseData = await createCompletion(
+      model,
+      [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: prompt }
+      ],
+      { systemPromptTemplate: '%1' }
+    )
+    return responseData.choices[0].message.content
+  }
 }
 
 async function processPromptsSequentially (prompts, model) {
@@ -61,7 +84,7 @@ async function processPromptsSequentially (prompts, model) {
   for (const prompt of prompts) {
     while (true) {
       const response = await askLlm(prompt, model)
-      console.log('RAW reponse:' + response)
+      console.log('RAW response:' + response)
       const validedResponse = await validateResponse(response)
       if (validedResponse.isValid === true) {
         answeredPrompt = {
@@ -69,7 +92,7 @@ async function processPromptsSequentially (prompts, model) {
           answer: validedResponse.answer
         }
         answeredPrompts.push(answeredPrompt)
-        console.log(answeredPrompts)
+        // console.log(answeredPrompts)
         break
       } else {
         console.log('--- Invalid response, try again')
@@ -89,7 +112,7 @@ async function validateResponse (response) {
   } catch (error) {
     console.log('Error:', error)
     const isValid = false
-    return { isValid}
+    return { isValid }
   }
 }
 
@@ -111,13 +134,12 @@ async function validateResponseFormat (reponse) {
 }
 
 async function saveData (modelData, answeredPrompts) {
-  console.log(modelData)
   newSurvey = {
     date: Date.now(),
     answers: answeredPrompts
   }
   modelData.surveys.push(newSurvey)
-  console.log(modelData)
+  // console.log(modelData)
   const fileName = `${modelName}.json`
   const filePath = `${dataFolder}/${fileName}`
   const jsonString = JSON.stringify(modelData, null, 2)
@@ -128,18 +150,19 @@ async function saveData (modelData, answeredPrompts) {
 
 async function generateDataFromModel () {
   console.log('Selected Model: ' + modelName)
+
   const model = await loadLlm(modelName)
+
   const modelData = await initData()
   const prompts = await getPrompts()
   while (true) {
     const answeredPrompts = await processPromptsSequentially(prompts, model)
     console.log('--- Questions compelte, data saved to json')
     const savedModelData = await saveData(modelData, answeredPrompts)
-    console.log(savedModelData)
+    // console.log(savedModelData)
     calcScore()
     console.log('calcScores')
   }
 }
-
 
 generateDataFromModel()
