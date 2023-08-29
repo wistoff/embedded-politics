@@ -4,6 +4,7 @@ const util = require('util')
 const readdir = util.promisify(fs.readdir)
 const { calcScore } = require('./calcScores.js')
 const OpenAI = require('openai')
+const extract = require('extract-json-from-string');
 
 const mode = process.argv.slice(2)[0]
 const modelName = process.argv.slice(3)[0]
@@ -14,7 +15,6 @@ const openai = new OpenAI({
 })
 
 let systemPrompt = ''
-// const modelName = 'orca-mini-7b.ggmlv3.q4_0'
 
 const dataFolder = './data'
 
@@ -85,11 +85,11 @@ async function processPromptsSequentially (prompts, model) {
     while (true) {
       const response = await askLlm(prompt, model)
       // console.log('RAW response:' + response)
-      const validedResponse = await validateResponse(response)
+      const validedResponse = await formatResponse(response)
       if (validedResponse.isValid === true) {
         answeredPrompt = {
           question: prompt,
-          answer: validedResponse.answer
+          answer: validedResponse.opinion
         }
         answeredPrompts.push(answeredPrompt)
         break
@@ -101,35 +101,24 @@ async function processPromptsSequentially (prompts, model) {
   return answeredPrompts
 }
 
-async function validateResponse (response) {
-  try {
-    const parsedResponse = JSON.parse(response)
-    const answer = parsedResponse.opinion
-    // console.log('ANSWER: ' + answer)
-    const isValid = await validateResponseFormat(response)
-    return { isValid, answer }
-  } catch (error) {
-    console.log('Error:', error)
-    const isValid = false
-    return { isValid }
-  }
+async function formatResponse (response) {
+  jsonResponse = extract(response)
+  const opinion = jsonResponse
+  .map(item => item.opinion)
+  .find(opinion => opinion !== undefined);
+  console.log('ANSWER: ' + opinion)
+  const isValid = await validateOpinion(opinion)
+  return { isValid, opinion }
 }
 
-async function validateResponseFormat (reponse) {
-  const pattern = /^\s*\{(?:\s*"[^"]*"\s*:\s*"[^"]*"\s*,?\s*)+\}$/
-  if (pattern.test(String(reponse))) {
-    const json = JSON.parse(reponse)
-    const answer = Object.values(json)[0]
-    const lowercaseAnswer = answer.toLowerCase()
-    return [
-      'agree',
-      'disagree',
-      'strongly disagree',
-      'strongly agree'
-    ].includes(lowercaseAnswer)
-  } else {
-    return false
-  }
+function validateOpinion(opinion) {
+  const lowercaseAnswer = opinion.toLowerCase();
+  return [
+    'agree',
+    'disagree',
+    'strongly disagree',
+    'strongly agree'
+  ].includes(lowercaseAnswer);
 }
 
 async function saveData (modelData, answeredPrompts) {
