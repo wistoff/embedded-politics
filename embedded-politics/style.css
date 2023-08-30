@@ -11,6 +11,10 @@ body {
   flex-direction: column;
 }
 
+#embeddings {
+  overflow: visible;
+}
+
 .caption {
   display: flex;
 }

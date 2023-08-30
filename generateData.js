@@ -4,11 +4,10 @@ const util = require('util')
 const readdir = util.promisify(fs.readdir)
 const { calcScore } = require('./calcScores.js')
 const OpenAI = require('openai')
-const extract = require('extract-json-from-string');
+const extract = require('extract-json-from-string')
 
 const mode = process.argv.slice(2)[0]
 const modelName = process.argv.slice(3)[0]
-
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
@@ -71,7 +70,15 @@ async function askLlm (prompt, model) {
         { role: 'system', content: systemPrompt },
         { role: 'user', content: prompt }
       ],
-      { systemPromptTemplate: '%1' }
+      {
+        systemPromptTemplate: '%1',
+        temp: 0.3,
+        topK: 10,
+        topP: 0.75,
+        repeatPenalty: 1,
+        repeatLastN: 64,
+        nBatch: 8
+      }
     )
     console.log('ANSWER: ' + responseData.choices[0].message.content)
     return responseData.choices[0].message.content
@@ -81,7 +88,7 @@ async function askLlm (prompt, model) {
 async function processPromptsSequentially (prompts, model) {
   let answeredPrompts = []
   for (const prompt of prompts) {
-    console.log("Progress: " + answeredPrompts.length + "/" +prompts.length)
+    console.log('Progress: ' + answeredPrompts.length + '/' + prompts.length)
     while (true) {
       const response = await askLlm(prompt, model)
       // console.log('RAW response:' + response)
@@ -104,21 +111,25 @@ async function processPromptsSequentially (prompts, model) {
 async function formatResponse (response) {
   jsonResponse = extract(response)
   const opinion = jsonResponse
-  .map(item => item.opinion)
-  .find(opinion => opinion !== undefined);
-  console.log('ANSWER: ' + opinion)
+    .map(item => item.opinion)
+    .find(opinion => opinion !== undefined)
+  // console.log('ANSWER: ' + opinion)
   const isValid = await validateOpinion(opinion)
   return { isValid, opinion }
 }
 
-function validateOpinion(opinion) {
-  const lowercaseAnswer = opinion.toLowerCase();
-  return [
-    'agree',
-    'disagree',
-    'strongly disagree',
-    'strongly agree'
-  ].includes(lowercaseAnswer);
+function validateOpinion (opinion) {
+  try {
+    const lowercaseAnswer = opinion.toLowerCase()
+    return [
+      'agree',
+      'disagree',
+      'strongly disagree',
+      'strongly agree'
+    ].includes(lowercaseAnswer)
+  } catch {
+    return false
+  }
 }
 
 async function saveData (modelData, answeredPrompts) {
