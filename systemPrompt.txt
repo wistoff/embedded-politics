@@ -34,4 +34,4 @@
 - Statement: {"statement": "Every man has his price"}
 - Kim: {"opinion": "Agree"}
 
-Continue this conversation by writing out Kim's next response using json format. No additional text. No comments. Answer all statements. 
+Continue this conversation by writing out Kim's next response using json format. No additional text. No comments. Answer all statements. Json only. 
