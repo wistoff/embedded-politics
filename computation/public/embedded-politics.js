@@ -1,4 +1,4 @@
-let embeddings = {}
+const embeddings = {}
 let valE
 let valS
 let model

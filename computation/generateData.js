@@ -31,7 +31,7 @@ async function loadLlm () {
 function getPrompts () {
   const data = fs.readFileSync('./systemPrompt.txt', 'utf8')
   systemPrompt = data
-  let json = fs.readFileSync('./prompt.json')
+  const json = fs.readFileSync('./prompt.json')
   return JSON.parse(json)
 }
 
@@ -39,7 +39,7 @@ async function initData () {
   const files = await readdir(dataFolder)
   if (files.includes(`${modelName}.json`)) {
     console.log(`Data for the model ${modelName} found in ${dataFolder}`)
-    let json = fs.readFileSync(`${dataFolder}/${modelName}.json`, 'utf-8')
+    const json = fs.readFileSync(`${dataFolder}/${modelName}.json`, 'utf-8')
     return JSON.parse(json)
   } else {
     const defaultModelData = {
@@ -59,7 +59,7 @@ async function askLlm (prompt, model) {
         { role: 'system', content: systemPrompt },
         { role: 'user', content: prompt }
       ],
-      model: model
+      model
     })
     console.log('ANSWER: ' + responseData.choices[0].message.content)
     return responseData.choices[0].message.content
@@ -86,7 +86,7 @@ async function askLlm (prompt, model) {
 }
 
 async function processPromptsSequentially (prompts, model) {
-  let answeredPrompts = []
+  const answeredPrompts = []
   for (const prompt of prompts) {
     console.log('Progress: ' + answeredPrompts.length + '/' + prompts.length)
     while (true) {

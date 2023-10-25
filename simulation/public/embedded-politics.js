@@ -1,7 +1,18 @@
-let embeddings = {}
+const embeddings = {}
 let valE
 let valS
 let model
+
+const socket = new WebSocket('ws://localhost:4441')
+
+socket.addEventListener('open', () => {
+  socket.send(JSON.stringify({ type: 'computer' }))
+})
+
+socket.addEventListener('message', event => {
+  const msg = JSON.parse(event.data)
+  console.log(msg)
+})
 
 async function getEmbeddings () {
   const response = await fetch('/api')
@@ -75,8 +86,8 @@ function addEmbeddings (embeddings) {
 }
 
 async function init () {
-  const embeddings = await getEmbeddings()
-  addEmbeddings(embeddings)
+  // const embeddings = await getEmbeddings()
+  // addEmbeddings(embeddings)
 }
 
 init()
