@@ -2,32 +2,20 @@ const path = require('path')
 const fs = require('fs')
 const express = require('express')
 const WebSocket = require('ws')
-const readline = require('readline')
 const dataFolder = '../computation/data'
+const { ui } = require('./ui')
 
 const state = {
-  interval: 3000,
-  current: null
+  interval: 100,
+  current: null,
+  history: []
 }
 
 const app = express()
+const wss = new WebSocket.Server({ port: 4441 })
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.listen(4440)
-
-const wss = new WebSocket.Server({ port: 4441 })
-
-console.log('Embedded Politics server running on port 4440 (4441)')
-
-process.stdout.write('\x1Bc')
-
-// const rl = readline.createInterface({
-//   input: process.stdin,
-//   output: process.stdout,
-//   prompt: 'Human '
-// })
-
-const models = getModels()
 
 function getModels () {
   const files = fs.readdirSync(dataFolder)
@@ -39,9 +27,7 @@ function getModels () {
 
 function getSurveys () {
   const models = getModels()
-  console.log('loading models')
   return models.flatMap(model => {
-    console.log(model)
     const file = fs.readFileSync(`${dataFolder}/${model}.json`)
     const modelData = JSON.parse(file)
     return modelData.surveys.map(survey => ({
@@ -51,8 +37,6 @@ function getSurveys () {
     }))
   })
 }
-
-wss.on('connection', ws => {})
 
 function broadcast (data) {
   wss.clients.forEach(client => {
@@ -64,8 +48,6 @@ function broadcast (data) {
 
 function getAnswers () {
   const surveys = getSurveys()
-  // console.log(surveys)
-  console.log('Starting over')
   return surveys.flatMap(s => {
     return s.survey.answers.map(answer => ({
       date: s.date,
@@ -75,30 +57,24 @@ function getAnswers () {
   })
 }
 
-function start () {
+function init () {
   const answers = getAnswers()
 
   answers.forEach((a, index) => {
-    setTimeout(async () => {
+    setTimeout(() => {
       if (state.current && state.current.date != a.date) {
         broadcast(a)
       }
       state.current = a
-      // console.log(state.current.date)
-      console.log('Model:', a.model, '| Survey:', a.date)
-      console.log('Question:', a.answer.question)
-      console.log('Answer:', a.answer.answer)
-      console.log('')
+      state.history.push(a)
+      ui(state.current)
 
       if (index === answers.length - 1) {
-        start()
+        state.history = []
+        init()
       }
     }, index * state.interval)
   })
-}
-
-function init () {
-  start()
 }
 
 init()
