@@ -12,25 +12,38 @@ const t = blessed.text({
   height: screen.height - 2,
   content: '',
   scrollable: true,
-  tags: true
+  tags: true,
+  scrollback: 100
 })
 
-const b = blessed.text({
+const bl = blessed.text({
   top: t.height + 1,
   left: 0,
-  width: '100%',
-  height: '1',
+  width: '50%',
+  height: 1,
   content: '',
-  tags: true
+  tags: true,
+})
+
+const br = blessed.text({
+  top: t.height + 1,
+  right: 0,
+  width: 13 + 1 + 7,
+  height: 1,
+  content: '',
+  tags: true,
+  align: 'right',
 })
 
 screen.append(t)
-screen.append(b)
+screen.append(bl)
+screen.append(br)
 
 function ui (c) {
-  t.pushLine(`${c.answer.question}\n${c.answer.answer}\n`)
+  t.pushLine(`\n${c.answer.question}\n${c.answer.answer}`)
   t.setScrollPerc(100)
-  b.setContent(`Model {bold}${c.model}{/bold}`)
+  bl.setContent(`Model {bold}${c.model}{/bold}`)
+  br.setContent(`${c.date} [{bold}${String(c.index).padStart(2, '0')}{/bold}/64]`)
   screen.render()
 }
 

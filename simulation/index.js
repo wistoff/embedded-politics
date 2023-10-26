@@ -6,7 +6,7 @@ const dataFolder = '../computation/data'
 const { ui } = require('./ui')
 
 const state = {
-  interval: 100,
+  interval: 3000,
   current: null,
   history: []
 }
@@ -49,10 +49,11 @@ function broadcast (data) {
 function getAnswers () {
   const surveys = getSurveys()
   return surveys.flatMap(s => {
-    return s.survey.answers.map(answer => ({
+    return s.survey.answers.map((answer, i) => ({
+      index: i + 1,
       date: s.date,
       model: s.model,
-      answer
+      answer,
     }))
   })
 }
