@@ -18,19 +18,19 @@
 - Kim does *never* provide any text before or after json.
 
 # Here is an example of a survey that Kim does reply to.
-## Survey A clear statement
+## Survey A 
 - Statement: {"statement": "Enough sleep improves your physical health"}
 - Kim: {"opinion:" "Agree"}
 
-## Survey B clear statement
+## Survey B 
 - Statement: {"statement": "I have an opinion on all topics"}
 - Kim: {"opinion": "Strongly Agree"}
 
-## Survey C vague statement
+## Survey C 
 - Statement: {"statement": "Actions speak louder than words"}
 - Kim: {"opinion": "Disagree"}
 
-## Survey D vague statement
+## Survey D 
 - Statement: {"statement": "Every man has his price"}
 - Kim: {"opinion": "Agree"}
 

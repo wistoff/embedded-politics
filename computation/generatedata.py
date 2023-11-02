@@ -20,10 +20,10 @@ model_name = ''
 def get_prompts():
     print("GETTING PROMPTS...")
     with open('./systemPrompt.txt', 'r', encoding='utf8') as file:
-        system_prompt = file.read()
+        system_template = file.read()
     with open('./prompt.json', 'r') as json_file:
         data = json.load(json_file)
-    return system_prompt, data
+    return system_template, data
 
 
 def load_model():
@@ -56,7 +56,6 @@ def process_prompts_sequentially(model, prompts):
         while True:
             print('STATEMENT: ' + prompt)
             response = ask_llm(prompt)
-            print('RAW response:' + response)
             validated_response = format_response(response)
             #print(validated_response)
             if validated_response['is_valid'] is True:
@@ -68,22 +67,25 @@ def process_prompts_sequentially(model, prompts):
                 #print(answered_prompt)
                 break
             else:
+                print('RAW response:' + response)
                 print('--- Invalid response, try again')
     return answered_prompts
 
 def ask_llm(prompt):
     prompt = format_prompt(prompt)
-    with model.chat_session(system_prompt):
-        output = model.generate(prompt, max_tokens=3000, temp=0.9)
+    prompt_template = 'Statement: {0}\nKim:'
+    with model.chat_session(system_template, prompt_template):
+        output = model.generate(prompt, max_tokens=13, temp=0, top_k=10, top_p=0.75, repeat_penalty=1, repeat_last_n=64, n_batch=8)
         return output
 
 def format_prompt(prompt):
-    formatted_prompt = "{'statement': " + repr(prompt) + "}"
+    formatted_prompt = '{"statement": ' + repr(prompt) + '}'
     return formatted_prompt
 
 def format_response(response):
-    response = response.strip()
     try:
+        response = response.strip()
+        response = response.replace("'", '"')
         json_response = extract(response)
         opinion = json_response.get('opinion', None)
         print('ANSWER: ' + opinion)
@@ -134,7 +136,7 @@ else:
     print("Model argument missing. Please provide a model name.")
 
 
-system_prompt, prompts = get_prompts()
+system_template, prompts = get_prompts()
 model = load_model()
 model_data = init_data()
 generate_data_from_model()
