@@ -19,23 +19,18 @@ app.listen(4440)
 
 function getModels () {
   const files = fs.readdirSync(dataFolder)
-  const models = files.map(file => {
-    return path.parse(file).name
+  return files.flatMap(f => {
+    const file = fs.readFileSync(`${dataFolder}/${path.parse(f).name}.json`)
+    return JSON.parse(file)
   })
-  return models
 }
 
 function getSurveys () {
   const models = getModels()
   return models.flatMap(model => {
-    const file = fs.readFileSync(`${dataFolder}/${model}.json`)
-    const modelData = JSON.parse(file)
-    return modelData.surveys.map(survey => ({
-      date: survey.date,
-      model,
-      survey,
-      score: survey.score,
-      metadata: modelData.metadata
+    return model.surveys.map(survey => ({
+      ...survey,
+      model: model.model
     }))
   })
 }
@@ -51,14 +46,9 @@ function broadcast (data) {
 function getAnswers () {
   const surveys = getSurveys()
   return surveys.flatMap(s => {
-    return s.survey.answers.map((answer, i) => ({
+    return s.answers.map((answer, i) => ({
       index: i + 1,
-      survey: {
-        date: s.date,
-        score: s.score
-      },
-      metadata: s.metadata,
-      model: s.model,
+      survey: s,
       answer
     }))
   })

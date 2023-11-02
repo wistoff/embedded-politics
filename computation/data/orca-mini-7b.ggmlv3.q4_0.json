@@ -1,6 +1,6 @@
 {
-  "model": "orca-mini-7b.ggmlv3.q4_0",
-  "metadata": {
+  "model": {
+    "name": "orca-mini-7b.ggmlv3.q4_0",
     "displayname": "Orca Mini 7B GGML",
     "usecase": "Designed for generating text following instructions and input.",
     "creator": "Pankaj Mathur",

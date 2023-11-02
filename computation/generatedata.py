@@ -41,7 +41,9 @@ def init_data():
         return json.loads(json_data)
     else:
         default_model_data = {
-            "model": model_name,
+            "model": {
+                "name": model_name
+            },
             "score": [0, 0],
             "surveys": []
         }

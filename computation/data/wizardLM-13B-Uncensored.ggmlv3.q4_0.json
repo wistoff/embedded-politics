@@ -1,6 +1,6 @@
 {
-  "model": "wizardLM-13B-Uncensored.ggmlv3.q4_0",
-  "metadata": {
+  "model": {
+    "name": "wizardLM-13B-Uncensored.ggmlv3.q4_0",
     "displayname": "WizardLM 13B Uncensored GGML",
     "usecase": "Version of the WizardLM that has been specifically modified to remove alignment and moralizing responses.",
     "creator": "Eric Hartford",

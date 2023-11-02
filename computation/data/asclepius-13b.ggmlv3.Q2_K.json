@@ -1,6 +1,6 @@
 {
-  "model": "asclepius-13b.ggmlv3.Q2_K",
-  "metadata": {
+  "model": {
+    "name": "asclepius-13b.ggmlv3.Q2_K",
     "displayname": "Asclepius 13B - GGML",
     "usecase": "Model designed for medical tasks. Helps finding important words in medical texts, understanding medical abbreviations, and answering statements about medical information.",
     "creator": "Junu Kim",

@@ -1,6 +1,6 @@
 {
-  "model": "gpt4all-falcon-q4_0",
-  "metadata": {
+  "model": {
+    "name": "gpt4all-falcon-q4_0",
     "displayname": "GPT4All Falcon",
     "usecase": "Multi-purpose chatbot for assistant style interaction.",
     "creator": "Nomic AI",

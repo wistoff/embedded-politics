@@ -1,6 +1,6 @@
 {
-  "model": "mistral-7b-instruct-v0.1.Q4_0",
-  "metadata": {
+  "model": {
+    "name": "mistral-7b-instruct-v0.1.Q4_0",
     "displayname": "Mistral 7B Instruct v0.1 - GGUF",
     "usecase": "Finetuned model for instruction based applications",
     "creator": "Mistral AI",
