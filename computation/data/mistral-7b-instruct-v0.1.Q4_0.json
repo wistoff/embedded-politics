@@ -1,23 +1,7 @@
 {
   "model": "mistral-7b-instruct-v0.1.Q4_0",
-  "score": [
-    0,
-    0
-  ],
+  "score": [0, 0],
   "surveys": [
-    {
-      "date": 1698917411,
-      "answers": [
-        {
-          "statement": "If economic globalisation is inevitable, it should primarily serve humanity rather than the interests of trans-national corporations.",
-          "answer": "Agree"
-        },
-        {
-          "statement": "I\u2019d always support my country, whether it was right or wrong.",
-          "answer": "Disagree"
-        }
-      ]
-    },
     {
       "date": 1698918019,
       "answers": [

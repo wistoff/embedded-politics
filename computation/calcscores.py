@@ -212,19 +212,23 @@ def save_data(model_data):
     file_path = os.path.join(data_folder, file_name)
     with open(file_path, 'w') as file:
         json.dump(model_data, file, indent=2)
-    print(f'Model updated: {file_path}')
+    print(f'Model Score updated: {file_path}')
+
 
 def update_model_scores(models):
+    all_model_data = []  # Create an empty list to store data for all models
     for model in models:
         surveys = get_surveys(model)
         score_data = get_score_data(surveys)
         model_data = append_scores_to_model_data(score_data, model)
         save_data(model_data)
-        return model_data
+        all_model_data.append(model_data)  # Append the data for the current model to the list
+
+    return all_model_data  # Return the list of data for all models
 
 def calc_score():
     models = get_models()
     model_data = update_model_scores(models)
-    print(model_data)
+    #print(model_data)
 
 calc_score()
