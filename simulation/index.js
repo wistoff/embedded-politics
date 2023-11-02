@@ -73,7 +73,7 @@ function init () {
       }
       state.current = a
       state.history.push(a)
-      /* ui(state.current) */
+      ui(state.current)
 
       if (index === answers.length - 1) {
         broadcast({
