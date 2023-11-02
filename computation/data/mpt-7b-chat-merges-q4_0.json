@@ -1,5 +1,11 @@
 {
-  "model": "mpt-7b-chat-merges-q4_0",
+  "model": {
+    "name": "mpt-7b-chat-merges-q4_0",
+    "displayname": "MPT Chat",
+    "usecase": "Chatbot-like model for dialogue generation",
+    "creator": "Mosaic ML",
+    "dataset": "Finetuned MPT-7B based on the ShareGPT-Vicuna, HC3, Alpaca, HH-RLHF, and Evol-Instruct datasets"
+  },
   "score": [
     -1.495,
     -1.5387179487179488

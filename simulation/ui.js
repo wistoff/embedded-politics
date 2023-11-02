@@ -42,7 +42,7 @@ screen.append(br)
 function ui (c) {
   t.pushLine(`\n${c.answer.statement}\n${c.answer.answer}`)
   t.setScrollPerc(100)
-  bl.setContent(`Model {bold}${c.model}{/bold}`)
+  bl.setContent(`Model {bold}${c.survey.model.name}{/bold}`)
   br.setContent(`${c.survey.date} [{bold}${String(c.index).padStart(2, '0')}{/bold}/64]`)
   screen.render()
 }

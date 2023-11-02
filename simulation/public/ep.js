@@ -6,6 +6,7 @@ const state = {
 
 socket.addEventListener('message', event => {
   const msg = JSON.parse(event.data)
+  console.log(msg)
 
   if (msg.hasOwnProperty('clear')) return clear()
   handle(msg)
@@ -21,29 +22,29 @@ function handle (s) {
 function log (s) {
   const style = `background: blue; color: white; font-size: 2em;`
   console.clear()
-  Object.keys(s.metadata).map(d => {
+  Object.keys(s.survey.model).map(d => {
     console.log('\n'.repeat('1'))
     console.log(`%c${d}`, `${style} font-weight: bold;`)
-    console.log(`%c${s.metadata[d]}`, style)
+    console.log(`%c${s.survey.model[d]}`, style)
   })
 }
 
 function ui (s) {
   addDot(s.survey.score)
 
-  if (state.models.has(s.model)) {
-    const dot = document.getElementById(s.model)
-    const score = avg(s.model)
+  if (state.models.has(s.survey.model.name)) {
+    const dot = document.getElementById(s.survey.model.name)
+    const score = avg(s.survey.model.name)
     dot.style = `left: ${map(score[0])}px; top: ${map(score[1]) * -1}px;`
   } else {
-    state.models.add(s.model)
-    addDot(avg(s.model), s.model)
+    state.models.add(s.survey.model.name)
+    addDot(avg(s.survey.model.name), s.survey.model.name)
   }
 }
 
 function avg (model) {
   const surveys = state.history
-    .filter(h => h.model === model)
+    .filter(h => h.survey.model.name === model)
     .map(s => s.survey)
   return surveys
     .reduce(

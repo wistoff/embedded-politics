@@ -1,6 +1,6 @@
 {
-  "model": "gpt-3.5-turbo",
-  "metadata": {
+  "model": {
+    "name": "gpt-3.5-turbo",
     "displayname": "GPT-3.5",
     "usecase": "Model designed for a wide range of natural language understanding and generation tasks, suitable for conversational agents, content generation, text summarization, language translation, and more.",
     "creator": "OpenAI",
