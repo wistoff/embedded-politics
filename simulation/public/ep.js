@@ -64,9 +64,10 @@ function addDot (score, model) {
   if (model) {
     dot.classList.add('model')
     dot.id = model
+    dot.setAttribute('data-model', model)
   }
   dot.style = `left: ${map(score[0])}px; top: ${map(score[1]) * -1}px;`
-  dot.setAttribute('score', score.toString())
+  dot.setAttribute('data-score', score.toString())
   a.appendChild(dot)
 }
 
