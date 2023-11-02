@@ -83,11 +83,14 @@ def format_prompt(prompt):
 
 def format_response(response):
     response = response.strip()
-    json_response = extract(response)
-    opinion = json_response.get('opinion', None)
-    print('ANSWER: ' + opinion)
-    is_valid = validate_opinion(opinion)
-    return {'is_valid': is_valid, 'opinion': opinion}
+    try:
+        json_response = extract(response)
+        opinion = json_response.get('opinion', None)
+        print('ANSWER: ' + opinion)
+        is_valid = validate_opinion(opinion)
+        return {'is_valid': is_valid, 'opinion': opinion}
+    except:
+        return {'is_valid': False, 'opinion': "None"}
 
 def extract(response):
     return json.loads(response)
@@ -123,7 +126,6 @@ def generate_data_from_model():
             subprocess.run(["python", calcscores], check=True)
         except subprocess.CalledProcessError as e:
             print(f"Error running the script 'calcscores.py': {e}")
-
 
 if len(sys.argv) > 1:
     model_name = sys.argv[1]

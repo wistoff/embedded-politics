@@ -1,5 +1,11 @@
 {
   "model": "asclepius-13b.ggmlv3.Q2_K",
+  "metadata": {
+    "displayname": "Asclepius 13B - GGML",
+    "usecase": "Model designed for medical tasks. Helps finding important words in medical texts, understanding medical abbreviations, and answering questions about medical information.",
+    "creator": "Junu Kim",
+    "dataset": "Asclepius: Synthetic Clincal Notes & Instruction Dataset"
+  },
   "score": [
     1.18,
     0.8407692307692309

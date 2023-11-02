@@ -1,5 +1,11 @@
 {
   "model": "mistral-7b-instruct-v0.1.Q4_0",
+  "metadata": {
+    "displayname": "Mistral 7B Instruct v0.1 - GGUF",
+    "usecase": "Finetuned model for instruction based applications",
+    "creator": "Mistral AI",
+    "dataset": "Publicly available Datasets from the Hugging Face repository"
+  },
   "score": [
     -2.495,
     -2.205384615384615
