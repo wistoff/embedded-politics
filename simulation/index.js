@@ -6,7 +6,7 @@ const dataFolder = '../computation/data'
 const { ui } = require('./ui')
 
 const state = {
-  interval: 3000,
+  interval: 300,
   current: null,
   history: []
 }
@@ -33,6 +33,7 @@ function getSurveys () {
     return modelData.surveys.map(survey => ({
       date: survey.date,
       model,
+      score: survey.score,
       survey
     }))
   })
@@ -52,15 +53,15 @@ function getAnswers () {
     return s.survey.answers.map((answer, i) => ({
       index: i + 1,
       date: s.date,
+      score: s.score,
       model: s.model,
-      answer,
+      answer
     }))
   })
 }
 
 function init () {
   const answers = getAnswers()
-
   answers.forEach((a, index) => {
     setTimeout(() => {
       if (state.current && state.current.date != a.date) {
