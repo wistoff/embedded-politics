@@ -1,4 +1,6 @@
 body {
+  --compass-size: 500px;
+  --dot-size: 1em;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -11,6 +13,28 @@ body {
   flex-direction: column;
 }
 
+.container {
+  position: relative;
+  width: var(--compass-size);
+}
+
+#answers {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--compass-size);
+  height: var(--compass-size);
+}
+
+.dot {
+  position: absolute;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 100px;
+  background: red;
+  transform: translate(calc(calc(var(--compass-size) / 2) - calc(var(--dot-size) / 2)), calc(calc(var(--compass-size) / 2) - calc(var(--dot-size) / 2)));
+}
+
 #embeddings {
   overflow: visible;
 }
@@ -21,14 +45,6 @@ body {
 
 .caption p {
   padding: 10px;
-}
-
-.svg-container1 {
-  width: 500px;
-}
-
-.svg-container2 {
-  display: flex;
 }
 
 p {

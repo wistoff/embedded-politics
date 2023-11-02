@@ -43,7 +43,7 @@ function ui (c) {
   t.pushLine(`\n${c.answer.question}\n${c.answer.answer}`)
   t.setScrollPerc(100)
   bl.setContent(`Model {bold}${c.model}{/bold}`)
-  br.setContent(`${c.date} [{bold}${String(c.index).padStart(2, '0')}{/bold}/64]`)
+  br.setContent(`${c.survey.date} [{bold}${String(c.index).padStart(2, '0')}{/bold}/64]`)
   screen.render()
 }
 

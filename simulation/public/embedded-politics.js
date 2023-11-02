@@ -5,14 +5,28 @@ let model
 
 const socket = new WebSocket('ws://localhost:4441')
 
-socket.addEventListener('open', () => {
-  socket.send(JSON.stringify({ type: 'computer' }))
-})
-
 socket.addEventListener('message', event => {
   const msg = JSON.parse(event.data)
-  console.log(msg)
+  handleSurvey(msg.survey)
 })
+
+function handleSurvey(survey) {
+  addDot(survey.score)
+}
+
+function addDot(score) {
+  const a = document.getElementById('answers')
+  const dot = document.createElement('div')
+  dot.className = 'dot'
+  dot.style = `top: ${map(score[1])}%; left: ${map(score[0])}%;`
+  a.appendChild(dot)
+}
+
+function map(v) {
+  const w = Number(getComputedStyle(document.body).getPropertyValue('--compass-size').replace('px', ''))
+  console.log(w)
+  return Number(v) * 10
+}
 
 async function getEmbeddings () {
   const response = await fetch('/api')
