@@ -33,6 +33,14 @@ body {
   border-radius: 100px;
   background: red;
   transform: translate(calc(calc(var(--compass-size) / 2) - calc(var(--dot-size) / 2)), calc(calc(var(--compass-size) / 2) - calc(var(--dot-size) / 2)));
+  opacity: 0.5;
+}
+
+.dot.model {
+  width: calc(var(--dot-size) * 2);
+  height: calc(var(--dot-size) * 2);
+  transform: translate(calc(calc(var(--compass-size) / 2) - calc(calc(var(--dot-size) * 2) / 2)), calc(calc(var(--compass-size) / 2) - calc(calc(var(--dot-size) * 2) / 2)));
+  opacity: 1;
 }
 
 #embeddings {

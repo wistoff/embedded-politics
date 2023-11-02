@@ -6,7 +6,7 @@ const dataFolder = '../computation/data'
 const { ui } = require('./ui')
 
 const state = {
-  interval: 30,
+  interval: 5,
   current: null,
   history: []
 }
@@ -73,9 +73,13 @@ function init () {
       }
       state.current = a
       state.history.push(a)
-      ui(state.current)
+      /* ui(state.current) */
 
       if (index === answers.length - 1) {
+        broadcast({
+          clear: true
+        })
+
         state.history = []
         init()
       }

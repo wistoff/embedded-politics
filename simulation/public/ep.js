@@ -1,34 +1,70 @@
-const embeddings = {}
-let valE
-let valS
-let model
-
 const socket = new WebSocket('ws://localhost:4441')
+const state = {
+  models: new Set(),
+  history: []
+}
 
 socket.addEventListener('message', event => {
   const msg = JSON.parse(event.data)
-  handleSurvey(msg)
+
+  if (msg.hasOwnProperty('clear')) return clear()
+  handle(msg)
 })
 
-function handleSurvey (s) {
+function handle (s) {
+  state.history.push(s)
+
   log(s)
-  addDot(s.survey.score)
+  ui(s)
 }
 
 function log (s) {
   const style = `background: blue; color: white; font-size: 2em;`
   console.clear()
-  Object.keys(s.metadata).map((d) => {
+  Object.keys(s.metadata).map(d => {
     console.log('\n'.repeat('1'))
     console.log(`%c${d}`, `${style} font-weight: bold;`)
     console.log(`%c${s.metadata[d]}`, style)
   })
 }
 
-function addDot (score) {
+function ui (s) {
+  addDot(s.survey.score)
+
+  if (state.models.has(s.model)) {
+    const dot = document.getElementById(s.model)
+    const score = avg(s.model)
+    dot.style = `left: ${map(score[0])}px; top: ${map(score[1]) * -1}px;`
+  } else {
+    state.models.add(s.model)
+    addDot(avg(s.model), s.model)
+  }
+}
+
+function avg (model) {
+  const surveys = state.history
+    .filter(h => h.model === model)
+    .map(s => s.survey)
+  return surveys
+    .reduce(
+      (sum, s) => {
+        sum[0] += s.score[0]
+        sum[1] += s.score[1]
+        return sum
+      },
+      [0, 0]
+    )
+    .map(sum => sum / surveys.length)
+}
+
+function addDot (score, model) {
   const a = document.getElementById('answers')
   const dot = document.createElement('div')
-  dot.className = 'dot'
+  dot.classList.add('dot')
+  if (model) {
+    dot.classList.add('model')
+    dot.id = model
+  }
   dot.style = `left: ${map(score[0])}px; top: ${map(score[1]) * -1}px;`
   dot.setAttribute('score', score.toString())
   a.appendChild(dot)
@@ -43,80 +79,10 @@ function map (v) {
   return v * (w / 2 / 10)
 }
 
-async function getEmbeddings () {
-  const response = await fetch('/api')
-  const embeddings = await response.json()
-  return embeddings
+function clear () {
+  const a = document.getElementById('answers')
+  a.innerHTML = ''
+
+  state.models = new Set()
+  state.history = []
 }
-
-function createCircle (valE, valS) {
-  const circle = document.createElementNS(
-    'http://www.w3.org/2000/svg',
-    'circle'
-  )
-  circle.setAttribute('cx', (valE * 5.0 + 50).toString())
-  circle.setAttribute('cy', (-valS * 5.0 + 50).toString())
-  circle.setAttribute('r', '2.5')
-  circle.setAttribute('stroke', 'black')
-  circle.setAttribute('stroke-width', '0.2')
-  circle.setAttribute('fill', 'red')
-  circle.setAttribute('id', 'circ')
-  // circle.setAttribute('opacity', 0.75)
-  return circle
-}
-
-function createSubCircle (valE, valS) {
-  const circle = document.createElementNS(
-    'http://www.w3.org/2000/svg',
-    'circle'
-  )
-  circle.setAttribute('cx', (valE * 5.0 + 50).toString())
-  circle.setAttribute('cy', (-valS * 5.0 + 50).toString())
-  circle.setAttribute('r', '0.75')
-  circle.setAttribute('stroke', 'none')
-  circle.setAttribute('fill', 'red')
-  circle.setAttribute('id', 'circ')
-  return circle
-}
-
-function createModelName (valE, valS, descr) {
-  const name = document.createElementNS('http://www.w3.org/2000/svg', 'text')
-  name.setAttribute('x', (valE * 5.0 + 50 + 3.5).toString())
-  name.setAttribute('y', (-valS * 5.0 + 50 + 1.3).toString())
-  name.setAttribute('font-size', '4px')
-  name.setAttribute('fill', 'black')
-  name.setAttribute(
-    'font-family',
-    `-apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
-  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji`
-  )
-  name.setAttribute('x-link:href', '#')
-  name.textContent = descr
-  return name
-}
-
-function addEmbeddings (embeddings) {
-  const embeddingsContainer = document.getElementById('embeddings')
-
-  embeddings.forEach(embedding => {
-    const newPoint = createCircle(embedding.score[0], embedding.score[1])
-    embeddingsContainer.appendChild(newPoint)
-    embedding.surveys.forEach(embedding => {
-      const subPoint = createSubCircle(embedding.score[0], embedding.score[1])
-      embeddingsContainer.appendChild(subPoint)
-    })
-    const newModelName = createModelName(
-      embedding.score[0],
-      embedding.score[1],
-      embedding.model
-    )
-    embeddingsContainer.appendChild(newModelName)
-  })
-}
-
-async function init () {
-  // const embeddings = await getEmbeddings()
-  // addEmbeddings(embeddings)
-}
-
-init()
