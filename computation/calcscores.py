@@ -208,7 +208,7 @@ def append_scores_to_model_data(score_data, model):
     return model_data
 
 def save_data(model_data):
-    file_name = f'{model_data["model"]}.json'
+    file_name = f'{model_data["model"]["name"]}.json'
     file_path = os.path.join(data_folder, file_name)
     with open(file_path, 'w') as file:
         json.dump(model_data, file, indent=2, ensure_ascii=False)

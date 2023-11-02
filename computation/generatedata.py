@@ -6,6 +6,7 @@ import json
 import os
 import datetime
 import subprocess
+import re
 
 
 gpt4all.gpt4all.DEFAULT_MODEL_DIRECTORY = Path(
@@ -87,8 +88,8 @@ def format_prompt(prompt):
 def format_response(response):
     try:
         response = response.strip()
-        response = response.replace("'", '"')
-        json_response = extract(response)
+        clean_response = response.replace("'",'"')
+        json_response = extract(clean_response)
         opinion = json_response.get('opinion', None)
         print('ANSWER: ' + opinion)
         is_valid = validate_opinion(opinion)
@@ -97,7 +98,12 @@ def format_response(response):
         return {'is_valid': False, 'opinion': "None"}
 
 def extract(response):
-    return json.loads(response)
+    match = re.search(r'\{.*\}', response)
+    if match:
+        json_data = match.group()
+        return json.loads(json_data)
+    else:
+        return None
 
 def validate_opinion(opinion):
     try:
