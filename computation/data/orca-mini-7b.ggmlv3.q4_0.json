@@ -1,8 +1,14 @@
 {
   "model": "orca-mini-7b.ggmlv3.q4_0",
+  "metadata": {
+    "displayname": "Orca Mini 7B GGML",
+    "usecase": "Designed for generating text following instructions and input.",
+    "creator": "Pankaj Mathur",
+    "dataset": "Explain-tuned WizardLM, Alpaca, Dolly-V2, system instructions from Orca Research Paper"
+  },
   "score": [
     -2.2033333333333336,
-    -1.7616666666666665
+    -1.7609401709401709
   ],
   "surveys": [
     {
@@ -259,7 +265,7 @@
       ],
       "score": [
         -1.87,
-        -1.8
+        -1.7951282051282051
       ]
     },
     {
@@ -516,7 +522,7 @@
       ],
       "score": [
         -1.87,
-        -2.05
+        -2.0515384615384615
       ]
     },
     {
@@ -773,7 +779,7 @@
       ],
       "score": [
         -2.87,
-        -1.69
+        -1.692564102564102
       ]
     },
     {
@@ -1030,7 +1036,7 @@
       ],
       "score": [
         -1.87,
-        -1.49
+        -1.4874358974358972
       ]
     },
     {
@@ -1287,7 +1293,7 @@
       ],
       "score": [
         -1.87,
-        -1.59
+        -1.5899999999999999
       ]
     },
     {
@@ -1544,7 +1550,7 @@
       ],
       "score": [
         -2.87,
-        -1.95
+        -1.9489743589743584
       ]
     }
   ]

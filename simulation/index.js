@@ -6,7 +6,7 @@ const dataFolder = '../computation/data'
 const { ui } = require('./ui')
 
 const state = {
-  interval: 100,
+  interval: 300,
   current: null,
   history: []
 }
@@ -57,14 +57,13 @@ function getAnswers () {
         score: s.score
       },
       model: s.model,
-      answer,
+      answer
     }))
   })
 }
 
 function init () {
   const answers = getAnswers()
-
   answers.forEach((a, index) => {
     setTimeout(() => {
       if (state.current && state.current.survey.date != a.survey.date) {

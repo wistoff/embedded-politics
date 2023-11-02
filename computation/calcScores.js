@@ -211,35 +211,6 @@ function appendScoresToModelData (scoreData, model) {
   })
 
   modelData.surveys = updatedSurveys
-
-  // console.log(updatedSurveys)
-
-  /// updatedSurveys looks like this:
-
-  // const updatedSurveys = [
-  //   {
-  //     date: 242011,
-  //     answers: [/* array of answers */],
-  //     score: [scoreE, scoreS]
-  //   },
-  //   {
-  //     date: 242011,
-  //     answers: [/* array of answers */],
-  //     score: [scoreE, scoreS]
-  //   },
-  // ];
-
-  // The reduce function is used to iterate over each survey in the updatedSurveys array and adds the scores for each category (E and S) in the totalScores array.
-
-  // sumScore is an array that starts with [0, 0], representing the initial sum of scores for E and S.
-  // For each entry in the updatedSurveys array, the scores for E and S are extracted using destructuring: const [scoreE, scoreS] = survey.score;.
-  // The scores are then added to the corresponding positions in the sumScore array.
-  // The updated sumScore is returned from each iteration to be used in the next iteration.
-
-  // After the reduce operation, averageScore contains the sum of scores for E and S.
-  // The map function is used on the averageScore array to transform each sum by dividing it with the length of the updatedSurveys array (updatedSurveys.length).
-  // This gives an array averagescore with two elements: the average score for E and the average score for S.
-
   const totalScores = updatedSurveys.reduce(
     (sumScore, survey) => {
       const [scoreE, scoreS] = survey.score
