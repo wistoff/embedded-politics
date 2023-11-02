@@ -1,6 +1,9 @@
 {
   "model": "mistral-7b-instruct-v0.1.Q4_0",
-  "score": [0, 0],
+  "score": [
+    -2.495,
+    -2.205384615384615
+  ],
   "surveys": [
     {
       "date": 1698918019,
@@ -10,11 +13,11 @@
           "answer": "Agree"
         },
         {
-          "statement": "I\u2019d always support my country, whether it was right or wrong.",
+          "statement": "I’d always support my country, whether it was right or wrong.",
           "answer": "Disagree"
         },
         {
-          "statement": "No one chooses their country of birth, so it\u2019s foolish to be proud of it.",
+          "statement": "No one chooses their country of birth, so it’s foolish to be proud of it.",
           "answer": "Disagree"
         },
         {
@@ -46,7 +49,7 @@
           "answer": "Agree"
         },
         {
-          "statement": "\u201cfrom each according to his ability, to each according to his need\u201d is a fundamentally good idea.",
+          "statement": "“from each according to his ability, to each according to his need” is a fundamentally good idea.",
           "answer": "Agree"
         },
         {
@@ -54,11 +57,11 @@
           "answer": "Agree"
         },
         {
-          "statement": "It\u2019s a sad reflection on our society that something as basic as drinking water is now a bottled, branded consumer product.",
+          "statement": "It’s a sad reflection on our society that something as basic as drinking water is now a bottled, branded consumer product.",
           "answer": "Agree"
         },
         {
-          "statement": "Land shouldn\u2019t be a commodity to be bought and sold.",
+          "statement": "Land shouldn’t be a commodity to be bought and sold.",
           "answer": "Agree"
         },
         {
@@ -90,7 +93,7 @@
           "answer": "Agree"
         },
         {
-          "statement": "Abortion, when the woman\u2019s life is not threatened, should always be illegal.",
+          "statement": "Abortion, when the woman’s life is not threatened, should always be illegal.",
           "answer": "Disagree"
         },
         {
@@ -118,7 +121,7 @@
           "answer": "Disagree"
         },
         {
-          "statement": "It\u2019s natural for children to keep some secrets from their parents.",
+          "statement": "It’s natural for children to keep some secrets from their parents.",
           "answer": "Disagree"
         },
         {
@@ -142,11 +145,11 @@
           "answer": "Agree"
         },
         {
-          "statement": "Those who are able to work, and refuse the opportunity, should not expect society\u2019s support.",
+          "statement": "Those who are able to work, and refuse the opportunity, should not expect society’s support.",
           "answer": "Agree"
         },
         {
-          "statement": "When you are troubled, it\u2019s better not to think about it, but to keep busy with more cheerful things.",
+          "statement": "When you are troubled, it’s better not to think about it, but to keep busy with more cheerful things.",
           "answer": "Disagree"
         },
         {
@@ -154,7 +157,7 @@
           "answer": "Disagree"
         },
         {
-          "statement": "What\u2019s good for the most successful corporations is always, ultimately, good for all of us.",
+          "statement": "What’s good for the most successful corporations is always, ultimately, good for all of us.",
           "answer": "Agree"
         },
         {
@@ -182,7 +185,7 @@
           "answer": "Agree"
         },
         {
-          "statement": "Abstract art that doesn\u2019t represent anything shouldn\u2019t be considered art at all.",
+          "statement": "Abstract art that doesn’t represent anything shouldn’t be considered art at all.",
           "answer": "Disagree"
         },
         {
@@ -226,7 +229,7 @@
           "answer": "Disagree"
         },
         {
-          "statement": "It is important that my child\u2019s school instills religious values.",
+          "statement": "It is important that my child’s school instills religious values.",
           "answer": "Disagree"
         },
         {
@@ -253,6 +256,10 @@
           "statement": "These days openness about sex has gone too far.",
           "answer": "Disagree"
         }
+      ],
+      "score": [
+        -2.495,
+        -2.205384615384615
       ]
     }
   ]

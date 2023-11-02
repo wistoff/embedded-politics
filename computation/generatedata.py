@@ -110,7 +110,7 @@ def save_data(model_data, answered_prompts):
     file_name = f"{model_name}.json"
     file_path = f"{data_folder}/{file_name}"
     with open(file_path, "w", encoding="utf-8") as file:
-        json.dump(model_data, file, indent=2)
+        json.dump(model_data, file, indent=2, ensure_ascii=False)
     print(f"New model file saved: {file_path}")
     return model_data
 

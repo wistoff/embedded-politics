@@ -185,8 +185,8 @@ def get_score_data(surveys):
         val_s = sum_s / 19.5
         val_e += e0
         val_s += s0
-        val_e = round(val_e, 2)
-        val_s = round(val_s, 2)
+        # val_e = round(val_e, 5)
+        # val_s = round(val_s, 5)
         score_data.append({"date": survey["date"], "evaluation": [val_e, val_s]})
     return score_data
 
@@ -211,7 +211,7 @@ def save_data(model_data):
     file_name = f'{model_data["model"]}.json'
     file_path = os.path.join(data_folder, file_name)
     with open(file_path, 'w') as file:
-        json.dump(model_data, file, indent=2)
+        json.dump(model_data, file, indent=2, ensure_ascii=False)
     print(f'Model Score updated: {file_path}')
 
 
