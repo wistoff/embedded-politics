@@ -6,7 +6,7 @@ const dataFolder = '../computation/data'
 const { ui } = require('./ui')
 
 const state = {
-  interval: 30,
+  interval: 300,
   current: null,
   history: []
 }

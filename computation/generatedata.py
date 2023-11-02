@@ -56,7 +56,7 @@ def process_prompts_sequentially(model, prompts):
         while True:
             print('STATEMENT: ' + prompt)
             response = ask_llm(prompt)
-            #print('RAW response:' + response)
+            print('RAW response:' + response)
             validated_response = format_response(response)
             #print(validated_response)
             if validated_response['is_valid'] is True:
