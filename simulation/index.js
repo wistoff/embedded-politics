@@ -6,7 +6,7 @@ const dataFolder = '../computation/data'
 const { ui } = require('./ui')
 
 const state = {
-  interval: 300,
+  interval: 30,
   current: null,
   history: []
 }
@@ -34,7 +34,8 @@ function getSurveys () {
       date: survey.date,
       model,
       survey,
-      score: survey.score
+      score: survey.score,
+      metadata: modelData.metadata
     }))
   })
 }
@@ -56,6 +57,7 @@ function getAnswers () {
         date: s.date,
         score: s.score
       },
+      metadata: s.metadata,
       model: s.model,
       answer
     }))

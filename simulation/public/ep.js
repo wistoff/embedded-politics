@@ -7,25 +7,40 @@ const socket = new WebSocket('ws://localhost:4441')
 
 socket.addEventListener('message', event => {
   const msg = JSON.parse(event.data)
-  handleSurvey(msg.survey)
+  handleSurvey(msg)
 })
 
-function handleSurvey(survey) {
-  addDot(survey.score)
+function handleSurvey (s) {
+  log(s)
+  addDot(s.survey.score)
 }
 
-function addDot(score) {
+function log (s) {
+  const style = `background: blue; color: white; font-size: 2em;`
+  console.clear()
+  Object.keys(s.metadata).map((d) => {
+    console.log('\n'.repeat('1'))
+    console.log(`%c${d}`, `${style} font-weight: bold;`)
+    console.log(`%c${s.metadata[d]}`, style)
+  })
+}
+
+function addDot (score) {
   const a = document.getElementById('answers')
   const dot = document.createElement('div')
   dot.className = 'dot'
-  dot.style = `top: ${map(score[1])}%; left: ${map(score[0])}%;`
+  dot.style = `left: ${map(score[0])}px; top: ${map(score[1]) * -1}px;`
+  dot.setAttribute('score', score.toString())
   a.appendChild(dot)
 }
 
-function map(v) {
-  const w = Number(getComputedStyle(document.body).getPropertyValue('--compass-size').replace('px', ''))
-  console.log(w)
-  return Number(v) * 10
+function map (v) {
+  const w = Number(
+    getComputedStyle(document.body)
+      .getPropertyValue('--compass-size')
+      .replace('px', '')
+  )
+  return v * (w / 2 / 10)
 }
 
 async function getEmbeddings () {

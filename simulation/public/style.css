@@ -1,6 +1,6 @@
 body {
   --compass-size: 500px;
-  --dot-size: 1em;
+  --dot-size: 6px;
   width: 100vw;
   height: 100vh;
   display: flex;
