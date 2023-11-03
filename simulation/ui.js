@@ -48,10 +48,16 @@ function ui (c) {
   )
 
   if (c.index === 1) {
-    screen.clearRegion(0, 0, screen.width, screen.height) // Clear the entire screen
+    clearTextElement()
+    screen.clearRegion(0, 0, screen.width, screen.height)
   } else {
     screen.render()
   }
+}
+
+function clearTextElement () {
+  t.setContent('')
+  screen.render()
 }
 
 module.exports = {
