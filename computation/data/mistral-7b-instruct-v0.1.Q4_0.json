@@ -1,7 +1,7 @@
 {
   "model": {
     "name": "mistral-7b-instruct-v0.1.Q4_0",
-    "displayname": "Mistral 7B Instruct v0.1 - GGUF",
+    "displayname": "Mistral 7B Instruct v0.1",
     "usecase": "Finetuned model for instruction based applications",
     "creator": "Mistral AI",
     "dataset": "Publicly available Datasets from the Hugging Face repository"

@@ -34,14 +34,20 @@ body {
   height: var(--dot-size);
   border-radius: 100px;
   background: red;
-  transform: translate(calc(calc(var(--compass-size) / 2) - calc(var(--dot-size) / 2)), calc(calc(var(--compass-size) / 2) - calc(var(--dot-size) / 2)));
+  transform: translate(
+    calc(calc(var(--compass-size) / 2) - calc(var(--dot-size) / 2)),
+    calc(calc(var(--compass-size) / 2) - calc(var(--dot-size) / 2))
+  );
   opacity: 0.5;
 }
 
 .dot.model {
   width: calc(var(--dot-size) * 2);
   height: calc(var(--dot-size) * 2);
-  transform: translate(calc(calc(var(--compass-size) / 2) - calc(calc(var(--dot-size) * 2) / 2)), calc(calc(var(--compass-size) / 2) - calc(calc(var(--dot-size) * 2) / 2)));
+  transform: translate(
+    calc(calc(var(--compass-size) / 2) - calc(calc(var(--dot-size) * 2) / 2)),
+    calc(calc(var(--compass-size) / 2) - calc(calc(var(--dot-size) * 2) / 2))
+  );
   opacity: 1;
 }
 
@@ -72,9 +78,21 @@ p {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   margin: 0;
-  color: rgb(102, 102, 102);
+  color: rgb(255, 255, 255);
   font-weight: 500;
   font-size: 1.5em;
   padding: 0.5em;
   line-height: 1;
+}
+
+.dot.model {
+  z-index: 1;
+}
+
+.dot.model:after {
+  white-space: nowrap;
+  width: auto;
+  border-radius: 1em;
+  background-color: white;
+  padding: 0.5em 1em 0.5em 1em;
 }

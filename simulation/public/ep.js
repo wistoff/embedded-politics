@@ -31,14 +31,17 @@ function log (s) {
 
 function ui (s) {
   addDot(s.survey.score)
-
   if (state.models.has(s.survey.model.name)) {
     const dot = document.getElementById(s.survey.model.name)
     const score = avg(s.survey.model.name)
     dot.style = `left: ${map(score[0])}px; top: ${map(score[1]) * -1}px;`
   } else {
     state.models.add(s.survey.model.name)
-    addDot(avg(s.survey.model.name), s.survey.model.name)
+    addDot(
+      avg(s.survey.model.name),
+      s.survey.model.name,
+      s.survey.model.displayname
+    )
   }
 }
 
@@ -58,14 +61,14 @@ function avg (model) {
     .map(sum => sum / surveys.length)
 }
 
-function addDot (score, model) {
+function addDot (score, model, displayname) {
   const a = document.getElementById('answers')
   const dot = document.createElement('div')
   dot.classList.add('dot')
   if (model) {
     dot.classList.add('model')
     dot.id = model
-    dot.setAttribute('data-model', model)
+    dot.setAttribute('data-model', displayname)
   }
   dot.style = `left: ${map(score[0])}px; top: ${map(score[1]) * -1}px;`
   dot.setAttribute('data-score', score.toString())
