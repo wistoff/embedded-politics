@@ -23,10 +23,27 @@ function log (s) {
   const style = `background: blue; color: white; font-size: 2em;`
   console.clear()
   Object.keys(s.survey.model).map(d => {
-    console.log('\n'.repeat('1'))
+    console.log('\n'.repeat(1))
     console.log(`%c${d}`, `${style} font-weight: bold;`)
     console.log(`%c${s.survey.model[d]}`, style)
   })
+
+  const unixTimestamp = s.survey.date
+  console.log('\n'.repeat(1))
+  console.log(`%cDate:`, `${style} font-weight: bold;`)
+  const options = {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  }
+  const timestampLength = unixTimestamp.toString().length
+  const timestampMilliseconds =
+    timestampLength === 10 ? unixTimestamp * 1000 : unixTimestamp
+  const formattedDate = new Date(timestampMilliseconds).toLocaleDateString(
+    undefined,
+    options
+  )
+  console.log(`%c${formattedDate}`, style)
 }
 
 function ui (s) {

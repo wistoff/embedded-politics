@@ -13,7 +13,7 @@ const t = blessed.text({
   content: '',
   scrollable: true,
   tags: true,
-  scrollback: 100
+  scrollback: 0
 })
 
 const bl = blessed.text({
