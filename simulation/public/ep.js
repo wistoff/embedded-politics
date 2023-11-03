@@ -30,11 +30,13 @@ function log (s) {
 
   const unixTimestamp = s.survey.date
   console.log('\n'.repeat(1))
-  console.log(`%cDate:`, `${style} font-weight: bold;`)
+  console.log(`%ctimestamp`, `${style} font-weight: bold;`)
   const options = {
     day: 'numeric',
     month: 'long',
-    year: 'numeric'
+    year: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
   }
   const timestampLength = unixTimestamp.toString().length
   const timestampMilliseconds =
@@ -43,6 +45,7 @@ function log (s) {
     undefined,
     options
   )
+
   console.log(`%c${formattedDate}`, style)
 }
 

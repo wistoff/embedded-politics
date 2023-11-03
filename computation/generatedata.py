@@ -78,7 +78,7 @@ def ask_llm(prompt):
     prompt = format_prompt(prompt)
     prompt_template = 'Statement: {0}\nKim:'
     with model.chat_session(system_template, prompt_template):
-        output = model.generate(prompt, max_tokens=13, temp=0, top_k=10, top_p=0.75, repeat_penalty=1, repeat_last_n=64, n_batch=8)
+        output = model.generate(prompt, max_tokens=13, temp=0.3, top_k=10, top_p=0.75, repeat_penalty=1, repeat_last_n=64, n_batch=8)
         return output
 
 def format_prompt(prompt):
