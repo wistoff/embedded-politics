@@ -22,7 +22,7 @@ const bl = blessed.text({
   width: '50%',
   height: 1,
   content: '',
-  tags: true,
+  tags: true
 })
 
 const br = blessed.text({
@@ -32,7 +32,7 @@ const br = blessed.text({
   height: 1,
   content: '',
   tags: true,
-  align: 'right',
+  align: 'right'
 })
 
 screen.append(t)
@@ -43,8 +43,15 @@ function ui (c) {
   t.pushLine(`\n${c.answer.statement}\n${c.answer.answer}`)
   t.setScrollPerc(100)
   bl.setContent(`Model {bold}${c.survey.model.name}{/bold}`)
-  br.setContent(`${c.survey.date} [{bold}${String(c.index).padStart(2, '0')}{/bold}/64]`)
-  screen.render()
+  br.setContent(
+    `${c.survey.date} [{bold}${String(c.index).padStart(2, '0')}{/bold}/64]`
+  )
+
+  if (c.index === 1) {
+    screen.clearRegion(0, 0, screen.width, screen.height) // Clear the entire screen
+  } else {
+    screen.render()
+  }
 }
 
 module.exports = {

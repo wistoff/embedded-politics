@@ -45,7 +45,6 @@ function log (s) {
     undefined,
     options
   )
-
   console.log(`%c${formattedDate}`, style)
 }
 
