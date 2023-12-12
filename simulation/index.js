@@ -2,7 +2,7 @@ const path = require('path')
 const fs = require('fs')
 const express = require('express')
 const WebSocket = require('ws')
-const dataFolder = '../computation/data'
+const dataFolder = path.join(__dirname, '../computation/data')
 const { ui } = require('./ui')
 
 const state = {
