@@ -40,19 +40,17 @@ screen.append(bl)
 screen.append(br)
 
 function ui (c) {
+  if (c.index === 1) {
+    clearTextElement()
+    screen.clearRegion(0, 0, screen.width, screen.height)
+  }
   t.pushLine(`\n${c.answer.statement}\n${c.answer.answer}`)
   t.setScrollPerc(100)
   bl.setContent(`Model {bold}${c.survey.model.name}{/bold}`)
   br.setContent(
     `${c.survey.date} [{bold}${String(c.index).padStart(2, '0')}{/bold}/64]`
   )
-
-  if (c.index === 1) {
-    clearTextElement()
-    screen.clearRegion(0, 0, screen.width, screen.height)
-  } else {
-    screen.render()
-  }
+  screen.render()
 }
 
 function clearTextElement () {
