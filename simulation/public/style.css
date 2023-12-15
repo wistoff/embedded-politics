@@ -1,3 +1,8 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   --compass-size: 500px;
   --dot-size: 6px;
@@ -7,6 +12,8 @@ body {
   justify-content: center;
   align-items: center;
   background: black;
+  font-family: 'Arial', -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   overflow: hidden;
 }
 
@@ -75,14 +82,15 @@ body {
 }
 
 p {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   margin: 0;
   color: rgb(255, 255, 255);
   font-weight: 500;
   font-size: 1.5em;
-  padding: 0.5em;
   line-height: 1;
+}
+
+.meme p {
+  padding: 0.5em;
 }
 
 .dot.model {
@@ -95,4 +103,50 @@ p {
   border-radius: 1em;
   background-color: white;
   padding: 0.5em 1em 0.5em 1em;
+}
+
+.meme {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80vw;
+}
+
+.meta {
+  position: absolute;
+  bottom: 2em;
+  right: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+  font-size: 0.4em;
+  color: white;
+  border-left: 0px solid rgba(255, 255, 255, 0.333);
+}
+
+.meta > div {
+  padding: 2em;
+  border: 1px solid rgba(255, 255, 255, 0.333);
+  border-radius: 3px;
+  background: black;
+}
+
+.meta p {
+  opacity: 0.8;
+  line-height: 1.2;
+}
+
+.meta h2 {
+  margin: 2em 0 0 0;
+  font-size: 1.2em;
+  text-transform: uppercase;
+}
+
+.meta h2:first-of-type {
+  margin: 0;
+}
+
+.meta #name, .meta #timestamp {
+  display: none;
 }

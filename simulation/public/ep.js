@@ -26,6 +26,7 @@ function log (s) {
     console.log('\n'.repeat(1))
     console.log(`%c${d}`, `${style} font-weight: bold;`)
     console.log(`%c${s.survey.model[d]}`, style)
+    document.querySelector(`#${d}`).innerText = s.survey.model[d]
   })
 
   const unixTimestamp = s.survey.date
@@ -46,6 +47,7 @@ function log (s) {
     options
   )
   console.log(`%c${formattedDate}`, style)
+  document.querySelector('#timestamp').innerText = formattedDate
 }
 
 function ui (s) {

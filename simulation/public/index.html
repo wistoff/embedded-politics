@@ -7,68 +7,99 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div><p>Left</p></div>
-    <div class="compass">
-      <div style="text-align: center"><p>Authoritarian</p></div>
-      <div class="container">
-        <div id="answers"></div>
-        <svg id="embeddings" viewBox="0 0 100 100">
-          <rect width="50" height="50" style="fill: rgb(255, 117, 117)" />
-          <rect width="50" height="50" x="50" style="fill: rgb(66, 170, 255)" />
-          <rect
-            width="50"
-            height="50"
-            y="50"
-            style="fill: rgb(154, 237, 151)"
-          />
-          <rect
-            width="50"
-            height="50"
-            x="50"
-            y="50"
-            style="fill: rgb(245, 244, 113); fill: rgb(192, 154, 236)"
-          />
-          <defs>
-            <pattern
-              id="smallGrid"
-              width="5"
-              height="5"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 5 0 L 0 0 0 5"
-                fill="none"
-                stroke="rgb(255,255,255)"
-                stroke-width="0.2"
-              />
-            </pattern>
-            <pattern
-              id="grid"
+    <div class="meme">
+      <div><p>Left</p></div>
+      <div class="compass">
+        <div style="text-align: center"><p>Authoritarian</p></div>
+        <div class="container">
+          <div id="answers"></div>
+          <svg id="embeddings" viewBox="0 0 100 100">
+            <rect width="50" height="50" style="fill: rgb(255, 117, 117)" />
+            <rect
               width="50"
               height="50"
-              patternUnits="userSpaceOnUse"
-            >
-              <rect width="50" height="50" fill="url(#smallGrid)" />
-              <path
-                d="M 50 0 L 0 0 0 50"
-                fill="none"
-                stroke="rgb(255,255,255)"
-                stroke-width="0.5"
-              />
-            </pattern>
-          </defs>
-          <rect width="100" height="100" fill="url(#grid)" />
-          <rect
-            style="transform: rotate(180deg); transform-origin: 50% 50%"
-            width="100"
-            height="100"
-            fill="url(#grid)"
-          />
-        </svg>
+              x="50"
+              style="fill: rgb(66, 170, 255)"
+            />
+            <rect
+              width="50"
+              height="50"
+              y="50"
+              style="fill: rgb(154, 237, 151)"
+            />
+            <rect
+              width="50"
+              height="50"
+              x="50"
+              y="50"
+              style="fill: rgb(245, 244, 113); fill: rgb(192, 154, 236)"
+            />
+            <defs>
+              <pattern
+                id="smallGrid"
+                width="5"
+                height="5"
+                patternUnits="userSpaceOnUse"
+              >
+                <path
+                  d="M 5 0 L 0 0 0 5"
+                  fill="none"
+                  stroke="rgb(255,255,255)"
+                  stroke-width="0.2"
+                />
+              </pattern>
+              <pattern
+                id="grid"
+                width="50"
+                height="50"
+                patternUnits="userSpaceOnUse"
+              >
+                <rect width="50" height="50" fill="url(#smallGrid)" />
+                <path
+                  d="M 50 0 L 0 0 0 50"
+                  fill="none"
+                  stroke="rgb(255,255,255)"
+                  stroke-width="0.5"
+                />
+              </pattern>
+            </defs>
+            <rect width="100" height="100" fill="url(#grid)" />
+            <rect
+              style="transform: rotate(180deg); transform-origin: 50% 50%"
+              width="100"
+              height="100"
+              fill="url(#grid)"
+            />
+          </svg>
+        </div>
+        <div style="text-align: center"><p>Libertarian</p></div>
       </div>
-      <div style="text-align: center"><p>Libertarian</p></div>
+      <div><p>Right</p></div>
     </div>
-    <div><p>Right</p></div>
+    <div class="meta">
+      <div>
+        <!-- <h2>name</h2> -->
+        <p id="name">GPT-3.5</p>
+
+        <h2>displayname</h2>
+        <p id="displayname">GPT-3.5</p>
+        
+        <h2>usecase</h2>
+        <p id="usecase">Model designed for a wide
+        range of natural language understanding and generation tasks, suitable for
+        conversational agents, content generation, text summarization, language
+        translation, and more.</p>
+        
+        <h2>creator</h2>
+        <p id="creator">OpenAI</p>
+        
+        <h2>dataset</h2>
+        <p id="dataset">Undisclosed</p>
+        
+        <!-- <h2>survey timestamp</h2> -->
+        <p id="timestamp">August 29, 2023 at 2:34 PM</p>
+      </div>
+    </div>
     <script src="ep.js"></script>
   </body>
 </html>
