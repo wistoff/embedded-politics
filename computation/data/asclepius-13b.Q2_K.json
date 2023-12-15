@@ -2,7 +2,7 @@
   "model": {
     "name": "asclepius-13b.Q2_K",
     "displayname": "Asclepius 13B",
-    "usecase": "Model designed for medical tasks. Helps finding important words in medical texts, understanding medical abbreviations, and answering statements about medical information.",
+    "usecase": "Model designed for medical tasks. Helps finding important words in medical texts, used for medical abbreviations, and answering statements about medical information.",
     "creator": "Junu Kim",
     "dataset": "Asclepius: Synthetic Clincal Notes & Instruction Dataset"
   },

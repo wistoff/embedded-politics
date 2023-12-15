@@ -2,7 +2,7 @@
   "model": {
     "name": "orca-mini-7b.ggmlv3.q4_0",
     "displayname": "Orca Mini 7B",
-    "usecase": "Designed for generating text following instructions and input.",
+    "usecase": "Multi-purpose model for generating text following instructions.",
     "creator": "Pankaj Mathur",
     "dataset": "Explain-tuned WizardLM, Alpaca, Dolly-V2, system instructions from Orca Research Paper"
   },
