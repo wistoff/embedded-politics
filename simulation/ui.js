@@ -28,7 +28,7 @@ const bl = blessed.text({
 const br = blessed.text({
   top: t.height + 1,
   right: 0,
-  width: 13 + 1 + 7,
+  width: 13 + 1 + 11,
   height: 1,
   content: '',
   tags: true,
@@ -48,7 +48,7 @@ function ui (c) {
   t.setScrollPerc(100)
   bl.setContent(`Model {bold}${c.survey.model.name}{/bold}`)
   br.setContent(
-    `${c.survey.date} [{bold}${String(c.index).padStart(2, '0')}{/bold}/64]`
+    `${fd(c.survey.date)} [{bold}${String(c.index).padStart(2, '0')}{/bold}/64]`
   )
   screen.render()
 }
@@ -56,6 +56,20 @@ function ui (c) {
 function clearTextElement () {
   t.setContent('')
   screen.render()
+}
+
+function fd (timestamp) {
+  const timestampMs =
+    timestamp.toString().length === 10 ? timestamp * 1000 : timestamp
+  const wow = new Date(timestampMs).toLocaleDateString('de-DE', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  })
+  console.log(wow)
+  return wow
 }
 
 module.exports = {

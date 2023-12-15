@@ -32,19 +32,18 @@ function log (s) {
   const unixTimestamp = s.survey.date
   console.log('\n'.repeat(1))
   console.log(`%ctimestamp`, `${style} font-weight: bold;`)
-  const options = {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-  }
   const timestampLength = unixTimestamp.toString().length
   const timestampMilliseconds =
     timestampLength === 10 ? unixTimestamp * 1000 : unixTimestamp
   const formattedDate = new Date(timestampMilliseconds).toLocaleDateString(
     undefined,
-    options
+    {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric'
+    }
   )
   console.log(`%c${formattedDate}`, style)
   document.querySelector('#timestamp').innerText = formattedDate
