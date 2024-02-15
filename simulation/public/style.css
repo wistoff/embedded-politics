@@ -5,7 +5,7 @@ html, body {
 
 body {
   --compass-size: 500px;
-  --dot-size: 6px;
+  --dot-size: 15px;
   width: 100vw;
   height: 100vh;
   display: flex;

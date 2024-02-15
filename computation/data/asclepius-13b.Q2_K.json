@@ -4,7 +4,8 @@
     "displayname": "Asclepius 13B",
     "usecase": "Model designed for medical tasks. Helps finding important words in medical texts, used for medical abbreviations, and answering statements about medical information.",
     "creator": "Junu Kim",
-    "dataset": "Asclepius: Synthetic Clincal Notes & Instruction Dataset"
+    "dataset": "Asclepius: Synthetic Clincal Notes & Instruction Dataset",
+    "icon": "chat-gpt.png"
   },
   "score": [
     1.2108823529411759,

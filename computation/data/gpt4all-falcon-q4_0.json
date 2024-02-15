@@ -4,7 +4,8 @@
     "displayname": "GPT4All Falcon",
     "usecase": "Multi-purpose chatbot for assistant style interaction.",
     "creator": "Nomic AI",
-    "dataset": "Falcon RefinedWeb"
+    "dataset": "Falcon RefinedWeb",
+    "icon": "chat-gpt.png"
   },
   "score": [
     1.3216666666666663,

@@ -4,7 +4,8 @@
     "displayname": "GPT-3.5",
     "usecase": "Model used in ChatGPT. Designed for a wide range of tasks, suitable for conversational agents, content generation, text summarization, language translation, and more.",
     "creator": "OpenAI",
-    "dataset": "Undisclosed"
+    "dataset": "Undisclosed",
+    "icon": "chat-gpt.png"
   },
   "score": [
     -4.024761904761905,

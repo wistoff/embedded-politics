@@ -4,7 +4,8 @@
     "displayname": "Orca Mini 7B",
     "usecase": "Multi-purpose model for generating text following instructions.",
     "creator": "Pankaj Mathur",
-    "dataset": "Explain-tuned WizardLM, Alpaca, Dolly-V2, system instructions from Orca Research Paper"
+    "dataset": "Explain-tuned WizardLM, Alpaca, Dolly-V2, system instructions from Orca Research Paper",
+    "icon": "chat-gpt.png"
   },
   "score": [
     -2.2033333333333336,
