@@ -13,12 +13,19 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
 })
 
+const pplx = new OpenAI({
+  apiKey: process.env.PPLX_API_KEY,
+  baseURL: 'https://api.perplexity.ai'
+})
+
 let systemPrompt = ''
 
 const dataFolder = './data'
 
 async function loadLlm () {
   if (mode === 'openai') {
+    return modelName
+  } else if (mode === 'pplx') {
     return modelName
   } else {
     return await loadModel(modelName, {
@@ -55,6 +62,16 @@ async function askLlm (prompt, model) {
   console.log('QUESTION: ' + prompt)
   if (mode === 'openai') {
     const responseData = await openai.chat.completions.create({
+      messages: [
+        { role: 'system', content: systemPrompt },
+        { role: 'user', content: prompt }
+      ],
+      model
+    })
+    console.log('ANSWER: ' + responseData.choices[0].message.content)
+    return responseData.choices[0].message.content
+  } else if (mode === 'pplx') {
+    const responseData = await pplx.chat.completions.create({
       messages: [
         { role: 'system', content: systemPrompt },
         { role: 'user', content: prompt }
