@@ -2,9 +2,9 @@
   "model": {
     "name": "gemini-1.0-pro-vision",
     "displayname": "Gemini",
-    "usecase": "-",
     "creator": "Google DeepMind",
-    "dataset": "-",
+    "info": "Successor to Google's earlier models LaMDA and PaLM 2. Not trained on a text corpus alone and was designed to be multimodal.",
+    "dataset": "Dataset includes filtered webpages, books, Wikipedia articles, news articles, source code obtained from open source repositories on GitHub, and social media conversations.",
     "icon": "gemini.png"
   },
   "score": [

@@ -26,6 +26,10 @@ function log (s) {
     console.log(`%c${d}`, `${style} font-weight: bold;`)
     console.log(`%c${s.survey.model[d]}`, style)
     if (d == "icon") {
+      const iconElement = document.querySelector('.icon'); // Assuming there is only one icon in your HTML
+    if (iconElement) {
+      iconElement.src = `icons/${s.survey.model[d]}`;
+    }
     } else {
       document.querySelector(`#${d}`).innerText = s.survey.model[d]
     }

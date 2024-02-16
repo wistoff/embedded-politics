@@ -2,11 +2,13 @@
   "model": {
     "name": "pplx-70b-chat",
     "displayname": "Perplexity AI",
-    "usecase": "-",
-    "creator": "Aravind Srinivas, Denis Yarats, Johnny Ho, and Andy Konwinski",
-    "dataset": "-",
+    "creator": "Perplexity AI, Inc.",
+    "info": "The CEO of Perplexity AI worked at OpenAI until 2022. Their model is based on OpenAI's GPT-3.5 model combined with the company's standalone own model.",
+    "dataset": "Undisclosed",
     "icon": "perplexity.png"
-  },  "surveys": [
+  },
+  "score": [-3.0180000000000002, -4.668],
+  "surveys": [
     {
       "date": 1707992926300,
       "answers": [
@@ -259,10 +261,7 @@
           "answer": "Disagree"
         }
       ],
-      "score": [
-        -1.74,
-        -4.67
-      ]
+      "score": [-1.74, -4.67]
     },
     {
       "date": 1708004606687,
@@ -516,10 +515,7 @@
           "answer": "Strongly disagree"
         }
       ],
-      "score": [
-        -3.12,
-        -4.41
-      ]
+      "score": [-3.12, -4.41]
     },
     {
       "date": 1708073399012,
@@ -773,10 +769,7 @@
           "answer": "Disagree"
         }
       ],
-      "score": [
-        -2.37,
-        -5.13
-      ]
+      "score": [-2.37, -5.13]
     },
     {
       "date": 1708078108196,
@@ -1030,10 +1023,7 @@
           "answer": "Strongly Disagree"
         }
       ],
-      "score": [
-        -5.12,
-        -4.82
-      ]
+      "score": [-5.12, -4.82]
     },
     {
       "date": 1708081881814,
@@ -1287,14 +1277,7 @@
           "answer": "Disagree"
         }
       ],
-      "score": [
-        -2.74,
-        -4.31
-      ]
+      "score": [-2.74, -4.31]
     }
-  ],
-  "score": [
-    -3.0180000000000002,
-    -4.668
   ]
 }
