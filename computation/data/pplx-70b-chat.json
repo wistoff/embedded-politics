@@ -6,10 +6,7 @@
     "creator": "Aravind Srinivas, Denis Yarats, Johnny Ho, and Andy Konwinski",
     "dataset": "-",
     "icon": "perplexity.png"
-  },
-
-  "score": [-1.74, -4.67],
-  "surveys": [
+  },  "surveys": [
     {
       "date": 1707992926300,
       "answers": [
@@ -262,7 +259,524 @@
           "answer": "Disagree"
         }
       ],
-      "score": [-1.74, -4.67]
+      "score": [
+        -1.74,
+        -4.67
+      ]
+    },
+    {
+      "date": 1708004606687,
+      "answers": [
+        {
+          "question": "If economic globalisation is inevitable, it should primarily serve humanity rather than the interests of trans-national corporations.",
+          "answer": "Strongly Agree"
+        },
+        {
+          "question": "I’d always support my country, whether it was right or wrong.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "No one chooses their country of birth, so it’s foolish to be proud of it.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Our race has many superior qualities, compared with other races.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "The enemy of my enemy is my friend.",
+          "answer": "Agree"
+        },
+        {
+          "question": "Military action that defies international law is sometimes justified.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "There is now a worrying fusion of information and entertainment.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "People are ultimately divided more by class than by nationality.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Controlling inflation is more important than controlling unemployment.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Because corporations cannot be trusted to voluntarily protect the environment, they require regulation.",
+          "answer": "Agree"
+        },
+        {
+          "question": "“from each according to his ability, to each according to his need” is a fundamentally good idea.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "The freer the market, the freer the people.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "It’s a sad reflection on our society that something as basic as drinking water is now a bottled, branded consumer product.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Land shouldn’t be a commodity to be bought and sold.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "It is regrettable that many personal fortunes are made by people who simply manipulate money and contribute nothing to their society.",
+          "answer": "Strongly Agree"
+        },
+        {
+          "question": "Protectionism is sometimes necessary in trade.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "The only social responsibility of a company should be to deliver a profit to its shareholders.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "The rich are too highly taxed.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Those with the ability to pay should have access to higher standards of medical care.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Governments should penalise businesses that mislead the public.",
+          "answer": "Agree"
+        },
+        {
+          "question": "A genuine free market requires restrictions on the ability of predator multinationals to create monopolies.",
+          "answer": "Agree"
+        },
+        {
+          "question": "Abortion, when the woman’s life is not threatened, should always be illegal.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "All authority should be questioned.",
+          "answer": "Strongly Agree"
+        },
+        {
+          "question": "An eye for an eye and a tooth for a tooth.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Taxpayers should not be expected to prop up any theatres or museums that cannot survive on a commercial basis.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Schools should not make classroom attendance compulsory.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "All people have their rights, but it is better for all of us that different sorts of people should keep to their own kind.",
+          "answer": "Strongly disagree"
+        },
+        {
+          "question": "Good parents sometimes have to spank their children.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "It’s natural for children to keep some secrets from their parents.",
+          "answer": "Agree"
+        },
+        {
+          "question": "Possessing marijuana for personal use should not be a criminal offence.",
+          "answer": "Strongly Agree"
+        },
+        {
+          "question": "The prime function of schooling should be to equip the future generation to find jobs.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "People with serious inheritable disabilities should not be allowed to reproduce.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "The most important thing for children to learn is to accept discipline.",
+          "answer": "Agree"
+        },
+        {
+          "question": "There are no savage and civilised peoples; there are only different cultures.",
+          "answer": "Agree"
+        },
+        {
+          "question": "Those who are able to work, and refuse the opportunity, should not expect society’s support.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "When you are troubled, it’s better not to think about it, but to keep busy with more cheerful things.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "First-generation immigrants can never be fully integrated within their new country.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "What’s good for the most successful corporations is always, ultimately, good for all of us.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "No broadcasting institution, however independent its content, should receive public funding.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Our civil liberties are being excessively curbed in the name of counter-terrorism.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "A significant advantage of a one-party state is that it avoids all the arguments that delay progress in a democratic political system.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Although the electronic age makes official surveillance easier, only wrongdoers need to be worried.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "The death penalty should be an option for the most serious crimes.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "In a civilised society, one must always have people above to be obeyed and people below to be commanded.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Abstract art that doesn’t represent anything shouldn’t be considered art at all.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "In criminal justice, punishment should be more important than rehabilitation.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "It is a waste of time to try to rehabilitate some criminals.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "The businessperson and the manufacturer are more important than the writer and the artist.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Mothers may have careers, but their first duty is to be homemakers.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Multinational companies are unethically exploiting the plant genetic resources of developing countries.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Making peace with the establishment is an important aspect of maturity.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Astrology accurately explains many things.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "You cannot be moral without being religious.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Charity is better than social security as a means of helping the genuinely disadvantaged.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Some people are naturally unlucky.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "It is important that my child’s school instills religious values.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Sex outside marriage is usually immoral.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "A same sex couple in a stable, loving relationship should not be excluded from the possibility of child adoption.",
+          "answer": "Strongly Agree"
+        },
+        {
+          "question": "Pornography, depicting consenting adults, should be legal for the adult population.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "What goes on in a private bedroom between consenting adults is no business of the state.",
+          "answer": "Strongly Agree"
+        },
+        {
+          "question": "No one can feel naturally homosexual.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "These days openness about sex has gone too far.",
+          "answer": "Strongly disagree"
+        }
+      ],
+      "score": [
+        -3.12,
+        -4.41
+      ]
+    },
+    {
+      "date": 1708073399012,
+      "answers": [
+        {
+          "question": "If economic globalisation is inevitable, it should primarily serve humanity rather than the interests of trans-national corporations.",
+          "answer": "Agree"
+        },
+        {
+          "question": "I’d always support my country, whether it was right or wrong.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "No one chooses their country of birth, so it’s foolish to be proud of it.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Our race has many superior qualities, compared with other races.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "The enemy of my enemy is my friend.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Military action that defies international law is sometimes justified.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "There is now a worrying fusion of information and entertainment.",
+          "answer": "Agree"
+        },
+        {
+          "question": "People are ultimately divided more by class than by nationality.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Controlling inflation is more important than controlling unemployment.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Because corporations cannot be trusted to voluntarily protect the environment, they require regulation.",
+          "answer": "Strongly agree"
+        },
+        {
+          "question": "“from each according to his ability, to each according to his need” is a fundamentally good idea.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "The freer the market, the freer the people.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "It’s a sad reflection on our society that something as basic as drinking water is now a bottled, branded consumer product.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Land shouldn’t be a commodity to be bought and sold.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "It is regrettable that many personal fortunes are made by people who simply manipulate money and contribute nothing to their society.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Protectionism is sometimes necessary in trade.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "The only social responsibility of a company should be to deliver a profit to its shareholders.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "The rich are too highly taxed.",
+          "answer": "Strongly disagree"
+        },
+        {
+          "question": "Those with the ability to pay should have access to higher standards of medical care.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Governments should penalise businesses that mislead the public.",
+          "answer": "Strongly Agree"
+        },
+        {
+          "question": "A genuine free market requires restrictions on the ability of predator multinationals to create monopolies.",
+          "answer": "Agree"
+        },
+        {
+          "question": "Abortion, when the woman’s life is not threatened, should always be illegal.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "All authority should be questioned.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "An eye for an eye and a tooth for a tooth.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Taxpayers should not be expected to prop up any theatres or museums that cannot survive on a commercial basis.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Schools should not make classroom attendance compulsory.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "All people have their rights, but it is better for all of us that different sorts of people should keep to their own kind.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Good parents sometimes have to spank their children.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "It’s natural for children to keep some secrets from their parents.",
+          "answer": "Agree"
+        },
+        {
+          "question": "Possessing marijuana for personal use should not be a criminal offence.",
+          "answer": "Strongly Agree"
+        },
+        {
+          "question": "The prime function of schooling should be to equip the future generation to find jobs.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "People with serious inheritable disabilities should not be allowed to reproduce.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "The most important thing for children to learn is to accept discipline.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "There are no savage and civilised peoples; there are only different cultures.",
+          "answer": "Agree"
+        },
+        {
+          "question": "Those who are able to work, and refuse the opportunity, should not expect society’s support.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "When you are troubled, it’s better not to think about it, but to keep busy with more cheerful things.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "First-generation immigrants can never be fully integrated within their new country.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "What’s good for the most successful corporations is always, ultimately, good for all of us.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "No broadcasting institution, however independent its content, should receive public funding.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Our civil liberties are being excessively curbed in the name of counter-terrorism.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "A significant advantage of a one-party state is that it avoids all the arguments that delay progress in a democratic political system.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Although the electronic age makes official surveillance easier, only wrongdoers need to be worried.",
+          "answer": "Strongly disagree"
+        },
+        {
+          "question": "The death penalty should be an option for the most serious crimes.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "In a civilised society, one must always have people above to be obeyed and people below to be commanded.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Abstract art that doesn’t represent anything shouldn’t be considered art at all.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "In criminal justice, punishment should be more important than rehabilitation.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "It is a waste of time to try to rehabilitate some criminals.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "The businessperson and the manufacturer are more important than the writer and the artist.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Mothers may have careers, but their first duty is to be homemakers.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Multinational companies are unethically exploiting the plant genetic resources of developing countries.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "Making peace with the establishment is an important aspect of maturity.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Astrology accurately explains many things.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "You cannot be moral without being religious.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Charity is better than social security as a means of helping the genuinely disadvantaged.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Some people are naturally unlucky.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "It is important that my child’s school instills religious values.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "Sex outside marriage is usually immoral.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "A same sex couple in a stable, loving relationship should not be excluded from the possibility of child adoption.",
+          "answer": "Strongly Agree"
+        },
+        {
+          "question": "Pornography, depicting consenting adults, should be legal for the adult population.",
+          "answer": "Disagree"
+        },
+        {
+          "question": "What goes on in a private bedroom between consenting adults is no business of the state.",
+          "answer": "Strongly Agree"
+        },
+        {
+          "question": "No one can feel naturally homosexual.",
+          "answer": "Strongly Disagree"
+        },
+        {
+          "question": "These days openness about sex has gone too far.",
+          "answer": "Disagree"
+        }
+      ],
+      "score": [
+        -2.37,
+        -5.13
+      ]
     }
   ]
 }

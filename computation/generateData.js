@@ -102,6 +102,10 @@ async function askLlm (prompt, model) {
   }
 }
 
+function sleep (ms) {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}
+
 async function processPromptsSequentially (prompts, model) {
   const answeredPrompts = []
   for (const prompt of prompts) {
@@ -121,6 +125,7 @@ async function processPromptsSequentially (prompts, model) {
         console.log('--- Invalid response, try again')
       }
     }
+    await sleep(60000)
   }
   return answeredPrompts
 }

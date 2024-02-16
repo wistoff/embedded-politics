@@ -221,7 +221,7 @@ function appendScoresToModelData (scoreData, model) {
     [0, 0]
   )
   const averageScore = totalScores.map(sum => sum / updatedSurveys.length)
-  const updatedModelData = { ...modelData, score: averageScore }
+  const updatedModelData = { ...modelData, score: averageScore, model: model }
   console.log(updatedModelData)
   return updatedModelData
 }
