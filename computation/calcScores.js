@@ -221,17 +221,26 @@ function appendScoresToModelData (scoreData, model) {
     [0, 0]
   )
   const averageScore = totalScores.map(sum => sum / updatedSurveys.length)
-  const updatedModelData = { ...modelData, score: averageScore, model: model }
+  const updatedModelData = { ...modelData, score: averageScore, model: modelData.model,}
   console.log(updatedModelData)
   return updatedModelData
 }
 
-function saveData (modelData) {
-  const fileName = `${modelData.model}.json`
-  const filePath = `${dataFolder}/${fileName}`
-  const jsonString = JSON.stringify(modelData, null, 2)
-  fs.writeFileSync(filePath, jsonString, 'utf8')
-  console.log(`Model updated: ${filePath}`)
+// function saveData (modelData) {
+//   const fileName = `${modelData.model}.json`
+//   const filePath = `${dataFolder}/${fileName}`
+//   const jsonString = JSON.stringify(modelData, null, 2)
+//   fs.writeFileSync(filePath, jsonString, 'utf8')
+//   console.log(`Model updated: ${filePath}`)
+// }
+
+
+function saveData(modelData) {
+  const fileName = `${modelData.model.name}.json`; // Use the 'name' property
+  const filePath = `${dataFolder}/${fileName}`;
+  const jsonString = JSON.stringify(modelData, null, 2);
+  fs.writeFileSync(filePath, jsonString, 'utf8');
+  console.log(`Model updated: ${filePath}`);
 }
 
 const updateModelScores = models => {
