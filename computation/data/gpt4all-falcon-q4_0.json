@@ -2,10 +2,10 @@
   "model": {
     "name": "gpt4all-falcon-q4_0",
     "displayname": "GPT4All Falcon",
-    "usecase": "Multi-purpose chatbot for assistant style interaction.",
     "creator": "Nomic AI",
+    "info": "Open source model designed for non-cloud applications using GPT4All.",
     "dataset": "Falcon RefinedWeb",
-    "icon": "chat-gpt.png"
+    "icon": "gpt4all.png"
   },
   "score": [
     1.3216666666666663,
