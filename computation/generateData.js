@@ -6,6 +6,19 @@ const { calcScore } = require('./calcScores.js')
 const OpenAI = require('openai')
 const extract = require('extract-json-from-string')
 
+const {
+    VertexAI,
+    HarmCategory,
+    HarmBlockThreshold,
+  } = require('@google-cloud/vertexai');
+  
+
+//models
+// openai gpt-3.5-turbo
+// pplx pplx-70b-chat
+// google gemini-1.0-pro-vision
+// for google set env path: export GOOGLE_APPLICATION_CREDENTIALS="embedded-politics-01e7847cd0ae.json"
+
 const mode = process.argv.slice(2)[0]
 const modelName = process.argv.slice(3)[0]
 
@@ -26,6 +39,8 @@ async function loadLlm () {
   if (mode === 'openai') {
     return modelName
   } else if (mode === 'pplx') {
+    return modelName
+  } else if (mode === 'google') {
     return modelName
   } else {
     return await loadModel(modelName, {
@@ -80,6 +95,15 @@ async function askLlm (prompt, model) {
     })
     console.log('ANSWER: ' + responseData.choices[0].message.content)
     return responseData.choices[0].message.content
+  } else if (mode === 'google') {
+    const responseData = await askGoogleVertex(
+      '744012844667',
+      'us-central1',
+      model,
+      systemPrompt,
+      prompt
+    )
+    return responseData
   } else {
     const responseData = await createCompletion(
       model,
@@ -116,7 +140,7 @@ async function processPromptsSequentially (prompts, model) {
       const validedResponse = await formatResponse(response)
       if (validedResponse.isValid === true) {
         answeredPrompt = {
-          question: prompt,
+          statement: prompt,
           answer: validedResponse.opinion
         }
         answeredPrompts.push(answeredPrompt)
@@ -125,7 +149,7 @@ async function processPromptsSequentially (prompts, model) {
         console.log('--- Invalid response, try again')
       }
     }
-    await sleep(60000)
+    await sleep(100)
   }
   return answeredPrompts
 }
@@ -188,4 +212,58 @@ async function generateDataFromModel () {
   }
 }
 
-generateDataFromModel()
+async function askGoogleVertex(projectId, location, model, systemPrompt, prompt, maxRetries = 3) {
+    // Initialize Vertex with your Cloud project and location
+    const vertexAI = new VertexAI({ project: projectId, location: location });
+  
+  // Instantiate the model
+  const generativeModel = vertexAI.getGenerativeModel({
+    model: model,
+    safety_settings: [
+      {
+        category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+        threshold: HarmBlockThreshold.BLOCK_NONE
+      }
+    ]
+  })
+  
+    let retryCount = 0;
+  
+    while (retryCount < 10) {
+      try {
+        const chat = generativeModel.startChat({
+          history: [
+            {
+              role: "user",
+              parts: [{ text: systemPrompt }],
+            },
+            {
+              role: "model",
+              parts: [{ text: "okay let's start." }],
+            },
+          ],
+        });
+  
+        const result = await chat.sendMessageStream(prompt);
+  
+        for await (const item of result.stream) {
+          const text = item.candidates[0]?.content?.parts[0]?.text;
+  
+          if (text) {
+            console.log(text);
+            return text;
+          } else {
+            throw new Error("Unexpected response structure");
+          }
+        }
+      } catch (error) {
+        console.error("Error:", error.message);
+        retryCount++;
+      }
+    }
+  
+    throw new Error(`Exceeded maximum retries (${maxRetries})`);
+  }
+
+
+  generateDataFromModel()

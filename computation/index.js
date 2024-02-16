@@ -31,7 +31,7 @@ app.get('/api', (req, res) => {
   res.setHeader('Content-Type', 'application/json')
   const models = getModels()
   const embeddings = getEmbeddings(models)
-  console.log(embeddings)
+  //console.log(embeddings)
   res.send(JSON.stringify(embeddings, null, 2))
 })
 

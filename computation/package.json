@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "@google-cloud/vertexai": "^0.4.0",
     "abbrev": "^1.1.1",
     "agent-base": "^6.0.2",
     "agentkeepalive": "^4.5.0",

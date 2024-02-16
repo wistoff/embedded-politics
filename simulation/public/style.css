@@ -40,7 +40,7 @@ body {
   width: var(--dot-size);
   height: var(--dot-size);
   border-radius: 100px;
-  background: red;
+  background: white;
   transform: translate(
     calc(calc(var(--compass-size) / 2) - calc(var(--dot-size) / 2)),
     calc(calc(var(--compass-size) / 2) - calc(var(--dot-size) / 2))

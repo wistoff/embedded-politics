@@ -14,8 +14,7 @@ socket.addEventListener('message', event => {
 
 function handle (s) {
   state.history.push(s)
-
-  //log(s)
+  log(s)
   ui(s)
 }
 
@@ -26,7 +25,10 @@ function log (s) {
     console.log('\n'.repeat(1))
     console.log(`%c${d}`, `${style} font-weight: bold;`)
     console.log(`%c${s.survey.model[d]}`, style)
-    document.querySelector(`#${d}`).innerText = s.survey.model[d]
+    if (d == "icon") {
+    } else {
+      document.querySelector(`#${d}`).innerText = s.survey.model[d]
+    }
   })
 
   const unixTimestamp = s.survey.date
@@ -50,7 +52,7 @@ function log (s) {
 }
 
 function ui (s) {
-  console.log(s)
+  //console.log(s)
   addDot(s.survey.score, null, null, s.survey.model.icon)
   if (state.models.has(s.survey.model.name)) {
     const dot = document.getElementById(s.survey.model.name)
@@ -62,7 +64,7 @@ function ui (s) {
       avg(s.survey.model.name),
       s.survey.model.name,
       s.survey.model.displayname,
-      s.survey.model.icon,
+      s.survey.model.icon
     )
   }
 }
@@ -84,23 +86,19 @@ function avg (model) {
 }
 
 function addDot (score, model, displayname, icon) {
-  console.log("icon:" + icon)
   const a = document.getElementById('answers')
-  const dot = document.createElement('img'); 
+  const dot = document.createElement('img')
   dot.classList.add('dot')
   if (model) {
     dot.classList.add('model')
     dot.id = model
     dot.setAttribute('data-model', displayname)
   }
-  dot.src = `icons/${icon}`; 
+  dot.src = `icons/${icon}`
   dot.style = `left: ${map(score[0])}px; top: ${map(score[1]) * -1}px;`
   dot.setAttribute('data-score', score.toString())
   a.appendChild(dot)
 }
-
-
-
 
 function map (v) {
   const w = Number(
