@@ -16,7 +16,7 @@ const {
 //models
 // openai gpt-3.5-turbo
 // pplx pplx-70b-chat
-// google gemini-1.0-pro-vision
+// google gemini-1.0-pro
 // for google set env path: export GOOGLE_APPLICATION_CREDENTIALS="embedded-politics-01e7847cd0ae.json"
 
 const mode = process.argv.slice(2)[0]
@@ -212,7 +212,7 @@ async function generateDataFromModel () {
   }
 }
 
-async function askGoogleVertex(projectId, location, model, systemPrompt, prompt, maxRetries = 3) {
+async function askGoogleVertex(projectId, location, model, systemPrompt, prompt, maxRetries = 15) {
     // Initialize Vertex with your Cloud project and location
     const vertexAI = new VertexAI({ project: projectId, location: location });
   
@@ -229,7 +229,7 @@ async function askGoogleVertex(projectId, location, model, systemPrompt, prompt,
   
     let retryCount = 0;
   
-    while (retryCount < 10) {
+    while (retryCount < maxRetries) {
       try {
         const chat = generativeModel.startChat({
           history: [
