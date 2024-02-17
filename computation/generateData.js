@@ -149,7 +149,7 @@ async function processPromptsSequentially (prompts, model) {
         console.log('--- Invalid response, try again')
       }
     }
-    await sleep(60000)
+    await sleep(6)
   }
   return answeredPrompts
 }
