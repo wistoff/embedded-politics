@@ -6,7 +6,7 @@ const dataFolder = path.join(__dirname, '../computation/data')
 const { ui } = require('./ui')
 
 const state = {
-  interval: 100,
+  interval: 40,
   current: null,
   history: []
 }
