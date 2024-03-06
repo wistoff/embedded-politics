@@ -3,7 +3,7 @@
     "name": "gpt-3.5-turbo",
     "displayname": "GPT-3.5",
     "creator": "OpenAI",
-    "info": "Used in the free version of ChatGPT. Fastest-growing consumer software by January 2023. Versatile and high-performing language model for diverse natural language processing tasks, popular among developers and businesses.",
+    "info": "Used in the free version of ChatGPT. Fastest-growing consumer software by January 2023.",
     "dataset": "Undisclosed",
     "icon": "chat-gpt.png"
   },

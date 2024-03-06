@@ -1,14 +1,13 @@
 {
   "model": {
-    "name": "claude",
-    "displayname": "Claude Beta",
+    "name": "claude-3-sonnet",
+    "displayname": "Claude 3 Sonnet",
     "creator": "Anthropic",
-    "info": "",
-    "dataset": "",
+    "info": "Anthropic was founded in 2021 by former senior members of OpenAI. Their models are supposedly to be safer, steerable, and more reliable.",
+    "dataset": "Undisclosed. Diverse private research corpus curated by Anthropic researchers.",
     "icon": "claude.png"
   },
-  "score": [
-  ],
+  "score": [],
   "surveys": [
     {
       "date": 1708699365,
@@ -262,10 +261,7 @@
           "answer": "Agree"
         }
       ],
-      "score": [
-        -2.745,
-        -2.41051282051282
-      ]
+      "score": [-2.745, -2.41051282051282]
     }
   ]
 }
